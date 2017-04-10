@@ -4,6 +4,9 @@ import {BookOverviewComponent} from './book-mgmt/book-overview/book-overview.com
 import {BookDetailsComponent} from './book-mgmt/book-details/book-details.component';
 import {MyFrideComponent} from "./fridge-mgmt/my-fridge/my-fridge.component";
 import {ShoppingList} from "./fridge-mgmt/shopping-list/shopping-list.component";
+import {LoginComponent} from "./fridge-mgmt/login/login.component";
+import {RegistrationComponent} from "./fridge-mgmt/registration/registartion.component";
+import {SandboxComponent} from "./fridge-mgmt/sandbox/sandbox.component";
 
 const appRoutes: Routes = [
   {
@@ -30,6 +33,18 @@ const appRoutes: Routes = [
   {
     path: 'shoppingList',
     component: ShoppingList
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegistrationComponent
+  },
+  {
+    path: 'sandbox',
+    component: SandboxComponent
   }
 ] as Routes;
 

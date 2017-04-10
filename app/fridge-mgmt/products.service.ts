@@ -22,4 +22,7 @@ export class Product {
   _id: number;
   _name: string;
   _quantity: number;
+  _unit: string;
+  _detailInfo: string;
+  _imageUrl: string;
 }
