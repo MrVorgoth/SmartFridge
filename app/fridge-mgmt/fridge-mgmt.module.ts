@@ -13,13 +13,16 @@ import {SingleProduct} from "./single-product/product.component";
 import {LoginComponent} from "./login/login.component";
 import {RegistrationComponent} from "./registration/registartion.component";
 import {SandboxComponent} from "./sandbox/sandbox.component";
+import {DragulaModule} from "ng2-dragula";
+
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    DragulaModule
   ],
   declarations: [MyFrideComponent, ShoppingList, SingleProduct, LoginComponent, RegistrationComponent, SandboxComponent],
   exports: [MyFrideComponent, ShoppingList, SingleProduct, LoginComponent, RegistrationComponent, SandboxComponent],

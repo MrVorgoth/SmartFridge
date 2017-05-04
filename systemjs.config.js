@@ -24,12 +24,18 @@
       '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+      'ng2-dragula': 'npm:ng2-dragula/bundles/ng2-dragula.umd.js',
 
       // other libraries
       'rxjs': 'npm:rxjs',
       'lodash': 'npm:lodash',
       '@ng-bootstrap/ng-bootstrap': 'node_modules/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js'
     },
+    // meta: {
+    //   'dragula': {
+    //     format: 'commonjs'
+    //   }
+    // },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
       app: {

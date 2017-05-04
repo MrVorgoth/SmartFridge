@@ -22,6 +22,7 @@ export class SandboxComponent implements OnInit{
 
   ngOnInit(): void {
     this.getProducts();
+
   }
 
   getProducts(): void {
