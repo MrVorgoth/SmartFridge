@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product} from "../products.service";
+import { ProductBase} from "../products.service";
 
 
 @Component({
@@ -8,11 +8,11 @@ import { Product} from "../products.service";
   styles: [require('./product.component.css!text')]
 } as Component)
 export class SingleProduct {
-  @Input() product: Product;
+  @Input() product: ProductBase;
   detailsShowed: boolean = false;
   constructor(){
     // if(this.product == null)
-      this.product = new Product();
+      this.product = new ProductBase();
       this.product._name = "New";
   }
 

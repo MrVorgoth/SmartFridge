@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router'
-import {ProductService, Product} from "../products.service";
+import {ProductService, ProductBase} from "../products.service";
 
 
 @Component({
@@ -10,7 +10,7 @@ import {ProductService, Product} from "../products.service";
   styles: [require('./my-fridge.component.css!text')]
 } as Component)
 export class MyFrideComponent implements OnInit{
-  products : Product[];
+  products : ProductBase[];
   constructor(private productService: ProductService){}
 
   ngOnInit(): void {

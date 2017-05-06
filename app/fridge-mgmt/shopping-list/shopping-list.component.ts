@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import {ProductService, Product} from "../products.service";
+import {ProductService, ProductBase} from "../products.service";
 
 @Component({
   selector: 'shopping-list',
@@ -8,9 +8,9 @@ import {ProductService, Product} from "../products.service";
   styles: [require('./shopping-list.component.css!text')]
 } as Component)
 export class ShoppingList implements OnInit{
-  onListProducts : Product[];
-  allProducts: Product[];
-  foundProducts: Product[];
+  onListProducts : ProductBase[];
+  allProducts: ProductBase[];
+  foundProducts: ProductBase[];
 
   constructor(private productService: ProductService){}
 
@@ -31,7 +31,7 @@ export class ShoppingList implements OnInit{
     }
   };
 
-  addToLis(product: Product) {
+  addToLis(product: ProductBase) {
     this.onListProducts.push(product);
   }
 }
