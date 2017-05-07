@@ -3,8 +3,6 @@ package com.pwr.service;
 import com.pwr.mappers.ProductBaseMapper;
 import com.pwr.model.ProductBaseEntity;
 import com.pwr.model.ProductBaseTO;
-import com.pwr.model.ProductEntity;
-import com.pwr.repository.PatientRepository;
 import com.pwr.repository.ProductBaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,12 +38,30 @@ public class ProductBaseService implements IProductBase{
   }
 
   @Override
-  public void createProduct(ProductBaseTO product) {
-    productBaseRepository.save(ProductBaseMapper.mapProductBase(product));
+  public void deleteProduct(long id) {
+    productBaseRepository.delete(id);
   }
 
   @Override
-  public List<ProductBaseEntity> findByName(String name) {
-    return productBaseRepository.findByName(name);
+  public ProductBaseTO updateProduct(ProductBaseTO product) {
+    ProductBaseEntity productBase = ProductBaseMapper.mapProductBase(product);
+    productBaseRepository.save(productBase);
+    return ProductBaseMapper.mapProductBase(productBase);
+  }
+
+  @Override
+  public ProductBaseEntity createProduct(ProductBaseTO product) {
+    ProductBaseEntity productBase = ProductBaseMapper.mapProductBase(product);
+    productBaseRepository.save(productBase);
+    return productBase;
+  }
+
+  @Override
+  public List<ProductBaseTO> findByName(String name) {
+    ArrayList<ProductBaseTO> products = new ArrayList<ProductBaseTO>();
+    for (ProductBaseEntity pbe : productBaseRepository.findAllByNameStartingWith(name)) {
+      products.add(ProductBaseMapper.mapProductBase(pbe));
+    }
+    return products;
   }
 }

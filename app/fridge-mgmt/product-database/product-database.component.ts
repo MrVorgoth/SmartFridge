@@ -10,6 +10,7 @@ import {ProductService, ProductBase} from "../products.service";
 export class ProductDatabaseComponent implements OnInit {
   newProduct: ProductBase = new ProductBase();
   products: ProductBase[];
+  message: string;
 
   constructor(private productService: ProductService){
   }
@@ -27,8 +28,13 @@ export class ProductDatabaseComponent implements OnInit {
       console.log(response);
       if(response != null) {
         this.products.push(response);
+        this.message = "Product: " + response.name + " added";
       }
     });
+  }
+
+  searchProduct(name: string): void{
+    this.productService.searchProducts(name).then(response => this.products = response);
   }
 
 

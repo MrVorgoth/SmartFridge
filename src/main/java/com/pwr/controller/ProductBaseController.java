@@ -36,11 +36,22 @@ public class ProductBaseController {
     return "ok";
   }
 
-  @RequestMapping(path = "create", method = RequestMethod.POST, consumes = "application/json")
+  @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
   @ResponseBody
   public ProductBaseTO createProduct(@RequestBody ProductBaseTO product) {
-    productBase.createProduct(product);
-    return product;
+    return ProductBaseMapper.mapProductBase(productBase.createProduct(product));
+  }
+
+  @RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
+  @ResponseBody
+  public ProductBaseTO updateProduct(@RequestBody ProductBaseTO product) {
+    return productBase.updateProduct(product);
+  }
+
+  @RequestMapping(method = RequestMethod.DELETE)
+  @ResponseBody
+  public void deleteProduct(@RequestParam("id") long id) {
+    productBase.deleteProduct(id);
   }
 
   @RequestMapping(path = "hello")
@@ -48,8 +59,8 @@ public class ProductBaseController {
     return "Hello, world";
   }
 
-  @RequestMapping(path = "test", method = RequestMethod.GET)
-  public ProductBaseTO test(@RequestParam("name") String name) {
-    return ProductBaseMapper.mapProductBase(productBase.findByName(name).get(0));
+  @RequestMapping(path = "search", method = RequestMethod.GET)
+  public List<ProductBaseTO> test(@RequestParam("name") String name) {
+    return productBase.findByName(name);
   }
 }

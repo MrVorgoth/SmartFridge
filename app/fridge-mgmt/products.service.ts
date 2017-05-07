@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import { PRODUCTS } from './mockProducts'
-import { Headers, Http } from '@angular/http';
+import {Headers, Http, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -11,7 +11,8 @@ export class ProductService {
   private postHeaders = new Headers({'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'});
 
   private getBaseProductsUrl : string = "http://localhost:8080/productBase/all";
-  private createProductUrl : string = "http://localhost:8080/productBase/create";
+  private searchProductsUrl : string = "http://localhost:8080/productBase/search";
+  private createProductUrl : string = "http://localhost:8080/productBase";
 
   constructor(private http: Http) { }
 
@@ -27,6 +28,33 @@ export class ProductService {
     return this.http.post(this.createProductUrl, JSON.stringify(product),{headers:this.postHeaders})
       .toPromise()
       .then(response => response.json() as ProductBase)
+      .catch(this.handleError);
+  }
+
+  updateProduct(product: ProductBase) : Promise<any> {
+    return this.http.put(this.createProductUrl, JSON.stringify(product),{headers:this.postHeaders})
+      .toPromise()
+      .then(response => response.json() as ProductBase)
+      .catch(this.handleError);
+  }
+
+  deleteProduct(id: number) : Promise<any> {
+    let params = new URLSearchParams();
+    params.append("id", id.toString());
+
+    return this.http.delete(this.createProductUrl, {headers:this.headers, search: params})
+      .toPromise()
+      .then(response => response.status)
+      .catch(this.handleError);
+  }
+
+  searchProducts(name: string) : Promise<ProductBase[]> {
+    let params = new URLSearchParams();
+    params.append("name", name);
+
+    return this.http.get(this.searchProductsUrl, {headers:this.headers, search:params})
+      .toPromise()
+      .then(response => response.json() as ProductBase[])
       .catch(this.handleError);
   }
 
