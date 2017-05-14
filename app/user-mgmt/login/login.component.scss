@@ -1,0 +1,119 @@
+// Mixins
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+// Variables
+$wrongValidationColor: red;
+$registrationFontColor: #FFF;
+$registrationBackgroundColor: #24313C;
+$registrationButtonBackground: #1AB188;
+$navHeight: 100px;
+$footerHeight: 50px;
+$footerBackground: #222;
+$fullPageHeight: calc(100vh - #{$navHeight} - #{$footerHeight});
+
+.loginSection {
+  width: 100%;
+  background-color: #EDEDED;
+  .loginBox {
+    width: 60%;
+    min-height: $fullPageHeight;
+    margin: 0 auto;
+    .row {
+      background-color: $registrationBackgroundColor;
+      color: $registrationFontColor;
+      min-height: $fullPageHeight;
+      padding-top: 25vh;
+      [class^="col"] {
+        background-color: $registrationBackgroundColor;
+        margin: 0 auto;
+        h2 {
+          text-align: center;
+        }
+        a {
+          text-decoration: none;
+          color: #FFF;
+          width: 50%;
+          display: inline-block;
+          margin: 0;
+          padding: 0;
+          background-color: $registrationButtonBackground;
+          &:hover {
+            background-color: #3CD3AA;
+            color: #FFF;
+          }
+          .btnSquare {
+            @include border-radius(0px);
+            background-color: $registrationButtonBackground;
+            width: 100%;
+            padding: 10px;
+            margin: 0;
+            font-size: 18px;
+            &:hover {
+              background-color: #3CD3AA;
+              color: #FFF;
+            }
+          }
+          .btnSignUpGray {
+            background-color: #435159;
+            color: #999;
+            &:hover {
+              background-color: #65737B;
+              color: #999;
+            }
+          }
+        }
+        .btnSignUpGray {
+          background-color: #435159;
+          &:hover {
+            background-color: #65737B;
+            color: #FFF;
+          }
+        }
+        form {
+          .form-control {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            background-color: #24313C;
+            border: 1px solid #555;
+            @include border-radius(0px);
+          }
+          .help-block {
+            color: #DD0000;
+          }
+          .form-group {
+            margin: 0;
+            .btnLogin {
+              width: 100%;
+              padding: 20px;
+              font-size: 24px;
+              font-weight: bold;
+              text-transform: uppercase;
+              @include border-radius(0px);
+              background-color: $registrationButtonBackground;
+              &:hover {
+                background-color: #3CD3AA;
+                color: #FFF;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  height: $footerHeight;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  background-color: $footerBackground;
+  p {
+    color: white;
+    text-align: center;
+  }
+}

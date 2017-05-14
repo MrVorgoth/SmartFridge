@@ -1,9 +1,9 @@
 package com.pwr.model;
 
 public class PatientTO {
-	
+
 	private String name;
-	
+
 	private String surname;
 
 	public String getName() {

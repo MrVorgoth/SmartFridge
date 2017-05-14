@@ -1,10 +1,13 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "node_modules/bootstrap/scss/variables";
 
+body {
+  background-color: #FFF !important;
+}
+
 .app {
   app-nav {
     display: block;
-    margin-bottom: 20px;
   }
 
   input.ng-invalid.ng-touched {

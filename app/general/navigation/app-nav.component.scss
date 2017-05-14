@@ -1,0 +1,40 @@
+//Variables
+$navHeight: 100px;
+
+.navbar {
+  margin: 0px;
+  padding: 0px;
+  border-radius: 0;
+  border: 0;
+  .navbar-brand {
+    height: $navHeight;
+    padding: 0 15px;
+  }
+  img {
+    padding: 6px 0;
+  }
+  .navbar-collapse {
+    ul {
+      height: $navHeight;
+      li {
+        height: $navHeight;
+        padding: 0;
+        font-size: 18px;
+        letter-spacing: 0.5px;
+        &:hover {
+          background-color: #1AB188;
+        }
+        a {
+          height: $navHeight;
+          padding: 0 10px;
+          margin: 0;
+          text-align: center;
+          vertical-align: middle;
+          line-height: $navHeight;
+          color: white;
+        }
+      }
+    }
+  }
+}
+

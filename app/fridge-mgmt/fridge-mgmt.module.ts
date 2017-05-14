@@ -10,9 +10,8 @@ import {MyFrideComponent} from "./my-fridge/my-fridge.component";
 import {ProductService} from "./products.service";
 import {ShoppingList} from "./shopping-list/shopping-list.component";
 import {SingleProduct} from "./single-product/product.component";
-import {LoginComponent} from "./login/login.component";
-import {RegistrationComponent} from "./registration/registartion.component";
-import {SandboxComponent} from "./sandbox/sandbox.component";
+import {LoginComponent} from "../user-mgmt/login/login.component";
+import {RegistrationComponent} from "../user-mgmt/registration/registartion.component";
 import {DragulaModule} from "ng2-dragula";
 import {ProductDatabaseComponent} from "./product-database/product-database.component";
 import {BaseProduct} from "./single-base-product/baseProduct.component";
@@ -27,8 +26,8 @@ import {BaseProduct} from "./single-base-product/baseProduct.component";
     HttpModule,
     DragulaModule
   ],
-  declarations: [MyFrideComponent, ShoppingList, SingleProduct, LoginComponent, RegistrationComponent, SandboxComponent, ProductDatabaseComponent, BaseProduct],
-  exports: [MyFrideComponent, ShoppingList, SingleProduct, LoginComponent, RegistrationComponent, SandboxComponent, ProductDatabaseComponent, BaseProduct],
+  declarations: [MyFrideComponent, ShoppingList, SingleProduct, LoginComponent, RegistrationComponent, ProductDatabaseComponent, BaseProduct],
+  exports: [MyFrideComponent, ShoppingList, SingleProduct, LoginComponent, RegistrationComponent, ProductDatabaseComponent, BaseProduct],
   providers: [ProductService]
 } as NgModule)
 export class FridgeMgmtModule {

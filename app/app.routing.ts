@@ -4,10 +4,10 @@ import {BookOverviewComponent} from './book-mgmt/book-overview/book-overview.com
 import {BookDetailsComponent} from './book-mgmt/book-details/book-details.component';
 import {MyFrideComponent} from "./fridge-mgmt/my-fridge/my-fridge.component";
 import {ShoppingList} from "./fridge-mgmt/shopping-list/shopping-list.component";
-import {LoginComponent} from "./fridge-mgmt/login/login.component";
-import {RegistrationComponent} from "./fridge-mgmt/registration/registartion.component";
-import {SandboxComponent} from "./fridge-mgmt/sandbox/sandbox.component";
+import {LoginComponent} from "./user-mgmt/login/login.component";
+import {RegistrationComponent} from "./user-mgmt/registration/registartion.component";
 import {ProductDatabaseComponent} from "./fridge-mgmt/product-database/product-database.component";
+import {HomePageComponent} from "./general/home-page/home-page.component";
 
 const appRoutes: Routes = [
   {
@@ -24,7 +24,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/book-mgmt/books',
+    redirectTo: 'homePage',
     pathMatch: 'full'
   },
   {
@@ -44,12 +44,12 @@ const appRoutes: Routes = [
     component: RegistrationComponent
   },
   {
-    path: 'sandbox',
-    component: SandboxComponent
-  },
-  {
     path: 'productDatabase',
     component: ProductDatabaseComponent
+  },
+  {
+    path: 'homePage',
+    component: HomePageComponent
   }
 ] as Routes;
 

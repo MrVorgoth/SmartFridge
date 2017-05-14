@@ -54,11 +54,6 @@ public class ProductBaseController {
     productBase.deleteProduct(id);
   }
 
-  @RequestMapping(path = "hello")
-  public String hello() {
-    return "Hello, world";
-  }
-
   @RequestMapping(path = "search", method = RequestMethod.GET)
   public List<ProductBaseTO> test(@RequestParam("name") String name) {
     return productBase.findByName(name);
