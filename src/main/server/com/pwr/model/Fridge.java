@@ -1,9 +1,8 @@
 package com.pwr.model;
 
 
-import javax.jws.soap.SOAPBinding;
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.Set;
 
 @Entity
 public class Fridge {

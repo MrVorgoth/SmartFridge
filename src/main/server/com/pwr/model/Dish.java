@@ -1,10 +1,7 @@
 package com.pwr.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import java.util.Collection;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Dish {

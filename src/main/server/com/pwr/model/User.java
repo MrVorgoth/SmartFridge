@@ -1,5 +1,8 @@
 package com.pwr.model;
 
+import javax.persistence.*;
+import java.util.Set;
+
 @Entity
 public class User {
 
@@ -12,7 +15,7 @@ public class User {
       @Column
       private String password;
 
-      @ManyToMany(cascade = {CascadeType.ALL})
+      @ManyToMany(cascade = {CascadeType.ALL}
       private Set<Fridge> fridgeSet;
 
       public Long getIdUser() {
