@@ -1,0 +1,11 @@
+<div>
+  <h2>Add products to fridge</h2>
+  <div>
+    <label>Search by name:</label><input #searchValue/><button (click)="searchProducts(searchValue.value)">Search</button>
+  </div>
+  <ul>
+    <li *ngFor="let product of filteredProducts">
+      <span>{{product.name}}</span><button (click)="clickOnProduct(product)">+</button>
+    </li>
+  </ul>
+</div>

@@ -1,9 +1,10 @@
 <div>
   <h2>My fridge</h2>
   <ul>
-    <li *ngFor="let product of products">
-      <span>{{product._id}}</span>{{product._name}}
+    <li *ngFor="let product of productsInFridge">
+      product
       <single-product [product]="product"></single-product>
     </li>
   </ul>
 </div>
+

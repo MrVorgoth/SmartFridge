@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import { PRODUCTS } from './mockProducts'
 import {Headers, Http, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import {Product} from "./mocks/Product";
+import {AvailableProducts} from "./mocks/AvailableProductsMock";
 
 @Injectable()
 export class ProductService {
@@ -15,6 +17,19 @@ export class ProductService {
   private createProductUrl : string = "http://localhost:8080/productBase";
 
   constructor(private http: Http) { }
+
+  getMockedProducts(filter: string) : Promise<Product[]> {
+    if(filter == null || filter =='')
+      return Promise.resolve(AvailableProducts);
+    else{
+      let filtered = [];
+      for (let i in AvailableProducts) {
+        if(AvailableProducts[i].name.indexOf(filter) != -1)
+          filtered.push(AvailableProducts[i]);
+      }
+      return Promise.resolve(filtered);
+    }
+  }
 
   getAllProducts() : Promise<ProductBase[]> {
     return this.http.get(this.getBaseProductsUrl, {headers:this.headers})

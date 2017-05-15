@@ -1,10 +1,10 @@
 <div class="row-wrapper">
 
-  <span class="label">{{product._name}}</span>
+  <span class="label">{{product.name}}</span>
   <button (click)="decreasQuantity()" class="gButton">
     <span class="glyphicon glyphicon-arrow-down"></span>
   </button>
-  <span><input [(ngModel)]="product._quantity" placeholder="Quantity" class="input"/></span>
+  <span><input [(ngModel)]="product.quantity" placeholder="Quantity" class="input"/></span>
   <button (click)="increaseQuantity()" class="gButton">
     <span class="glyphicon glyphicon-arrow-up"></span>
   </button>

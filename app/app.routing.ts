@@ -8,6 +8,7 @@ import {LoginComponent} from "./fridge-mgmt/login/login.component";
 import {RegistrationComponent} from "./fridge-mgmt/registration/registartion.component";
 import {SandboxComponent} from "./fridge-mgmt/sandbox/sandbox.component";
 import {ProductDatabaseComponent} from "./fridge-mgmt/product-database/product-database.component";
+import {FridgeContentComponent} from "./fridge-mgmt/firdge-content/fridge-content.component";
 
 const appRoutes: Routes = [
   {
@@ -50,6 +51,10 @@ const appRoutes: Routes = [
   {
     path: 'productDatabase',
     component: ProductDatabaseComponent
+  },
+  {
+    path: 'fridgeContent',
+    component: FridgeContentComponent
   }
 ] as Routes;
 

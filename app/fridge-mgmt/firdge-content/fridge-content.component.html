@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h2>Content of my fridge!</h2>
+    <ul>
+      <li *ngFor="let product of productsInFridge">
+        <single-product [product]="product"></single-product>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-sm-6">
+    <product-store (addProduct)="addToFridge($event)"></product-store>
+  </div>
+
+</div>
+<button (click)="logFridgeContent()">Log content</button>

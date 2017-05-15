@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ProductBase} from "../products.service";
+import {Product} from "../mocks/Product";
 
 
 @Component({
@@ -8,24 +8,21 @@ import { ProductBase} from "../products.service";
   styles: [require('./product.component.css!text')]
 } as Component)
 export class SingleProduct {
-  @Input() product: ProductBase;
+  @Input() product: Product;
   detailsShowed: boolean = false;
   constructor(){
-    // if(this.product == null)
-      this.product = new ProductBase();
-      this.product._name = "New";
   }
 
   increaseQuantity(): void {
-    if(this.product._quantity < 0 || this.product._quantity == null) {
-      this.product._quantity = 0;
-    }else this.product._quantity++;
+    if(this.product.quantity < 0 || this.product.quantity == null) {
+      this.product.quantity = 0;
+    }else this.product.quantity++;
   }
 
   decreasQuantity(): void {
-    if(this.product._quantity < 1 || this.product._quantity == null) {
-      this.product._quantity = 0;
-    }else this.product._quantity--;
+    if(this.product.quantity < 1 || this.product.quantity == null) {
+      this.product.quantity = 0;
+    }else this.product.quantity--;
   }
 
   changeDetailsState(): void {
