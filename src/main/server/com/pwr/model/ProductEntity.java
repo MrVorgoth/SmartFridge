@@ -1,10 +1,8 @@
 package com.pwr.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * Created by Magda on 2017-04-10.
@@ -15,16 +13,40 @@ public class ProductEntity {
     @Id
     @GeneratedValue
     private Long id;
+    private Date insertDate;
+    private boolean fresh;
+    private int quantity;
 
-    @ManyToMany(mappedBy = "products")
-    private Collection<UserFridgeEntity> userFridge;
-
-    public Collection<UserFridgeEntity> getUserFridge() {
-        return userFridge;
+    public Long getId() {
+        return id;
     }
 
-    public void setUserFridge(Collection<UserFridgeEntity> userFridge) {
-        this.userFridge = userFridge;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getInsertDate() {
+        return insertDate;
+    }
+
+    public void setInsertDate(Date insertDate) {
+        this.insertDate = insertDate;
+    }
+
+    public boolean getFresh() {
+        return fresh;
+    }
+
+    public void setFresh(boolean fresh) {
+        this.fresh = fresh;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     @ManyToMany(mappedBy = "products")
@@ -49,6 +71,25 @@ public class ProductEntity {
         this.userShoppingList = userShoppingList;
     }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    @ManyToMany(mappedBy = "products")
+    private Collection<UserFridgeEntity> userFridge;
+
+    public Collection<UserFridgeEntity> getUserFridge() {
+        return userFridge;
+    }
+
+    public void setUserFridge(Collection<UserFridgeEntity> userFridge) {
+        this.userFridge = userFridge;
+    }
+
+    @ManyToOne
+    private ProductBaseEntity productBase;
+
+    public ProductBaseEntity getProductBaseEntity() {
+        return productBase;
+    }
+
+    public void setProductBaseEntity(ProductBaseEntity productBaseEntity) {
+        this.productBase = productBaseEntity;
+    }
 }

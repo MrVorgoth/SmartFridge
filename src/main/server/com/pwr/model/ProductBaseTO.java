@@ -1,7 +1,5 @@
 package com.pwr.model;
 
-import javax.persistence.Column;
-
 /**
  * Created by lodwr on 06.05.2017.
  */

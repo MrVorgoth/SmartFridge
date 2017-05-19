@@ -15,11 +15,35 @@ public class UserFridgeEntity {
     @GeneratedValue
     private Long id;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @OneToOne(cascade = {CascadeType.ALL},mappedBy = "userFridge")
-    private UserEntity user = new UserEntity();
+    private UserEntity user;
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
 
     @OneToOne(cascade = { CascadeType.ALL })
     private UserShoppingListEntity userShoppingList;
+
+    public UserShoppingListEntity getUserShoppingList() {
+        return userShoppingList;
+    }
+
+    public void setUserShoppingList(UserShoppingListEntity userShoppingList) {
+        this.userShoppingList = userShoppingList;
+    }
 
     @ManyToMany
     private Collection<ProductEntity> products;
@@ -32,6 +56,14 @@ public class UserFridgeEntity {
         this.products = products;
     }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userFridge")
+    private Collection<RequiedProductEntity> requiedProducts;
+
+    public Collection<RequiedProductEntity> getRequiedProducts() {
+        return requiedProducts;
+    }
+
+    public void setRequiedProducts(Collection<RequiedProductEntity> products) {
+        this.requiedProducts = products;
+    }
 }

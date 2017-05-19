@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Headers, Http, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class UserService {
@@ -16,7 +17,7 @@ export class UserService {
   private searchUserUrl: string = "http://localhost:8080/user/search";
   private validateUserUrl: string = "http://localhost:8080/user/validate";
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private router:Router) {
   }
 
   getAllUsers(): Promise<User[]> {
@@ -70,7 +71,9 @@ export class UserService {
           window.location.href = "/login";
         }
       }).catch(() => {
-      window.location.href = "/login";
+      console.log('catched');
+      this.router.navigate(['/login']);
+
       //return Observable.of(false);
     });
   }

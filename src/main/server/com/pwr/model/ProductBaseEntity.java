@@ -1,9 +1,7 @@
 package com.pwr.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * Created by lodwr on 06.05.2017.
@@ -14,14 +12,10 @@ public class ProductBaseEntity {
   @Id
   @GeneratedValue
   private Long id;
-  @Column
   private String name;
-
-  @Column
   private String units;
-
-  @Column
   private int baseValidityPeriod;
+  private String description;
 
   public Long getId() {
     return id;
@@ -55,6 +49,44 @@ public class ProductBaseEntity {
     this.baseValidityPeriod = baseValidityPeriod;
   }
 
+  public String getDescription() {
+    return description;
+  }
 
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
+  @ManyToOne
+  private CategoryEntity category;
+
+  public CategoryEntity getCategory() {
+    return category;
+  }
+
+  public void setCategory(CategoryEntity category) {
+    this.category = category;
+  }
+
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "productBase")
+  private Collection<ProductEntity> products;
+
+  public Collection<ProductEntity> getProduts() {
+    return products;
+  }
+
+  public void setUserFridge(Collection<ProductEntity> products) {
+    this.products = products;
+  }
+
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "productBase")
+  private Collection<RequiedProductEntity> requiedProducts;
+
+  public Collection<RequiedProductEntity> getRequiedProducts() {
+    return requiedProducts;
+  }
+
+  public void setRequiedProducts(Collection<RequiedProductEntity> products) {
+    this.requiedProducts = products;
+  }
 }
