@@ -23,7 +23,7 @@ public class UserFridgeEntity {
         this.id = id;
     }
 
-    @OneToOne(cascade = {CascadeType.ALL},mappedBy = "userFridge")
+    /*@OneToOne(cascade = {CascadeType.ALL},mappedBy = "userFridge")
     private UserEntity user;
 
     public UserEntity getUser() {
@@ -32,7 +32,7 @@ public class UserFridgeEntity {
 
     public void setUser(UserEntity user) {
         this.user = user;
-    }
+    }*/
 
     @OneToOne(cascade = { CascadeType.ALL })
     private UserShoppingListEntity userShoppingList;

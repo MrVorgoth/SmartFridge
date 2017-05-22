@@ -9,6 +9,7 @@ export class UserService {
   private users: User[] = [];
   private sequencer: number = 1;
   private isAuthorized: boolean = false;
+  private whoIsLoggedIn: string = "test";
   private headers = new Headers({'Access-Control-Allow-Origin': '*'});
   private postHeaders = new Headers({'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'});
 
@@ -29,6 +30,14 @@ export class UserService {
 
   getAuthorizedStatus() : boolean {
     return this.isAuthorized;
+  }
+
+  getwhoIsLoggedIn() : string {
+    return this.whoIsLoggedIn;
+  }
+
+  setwhoIsLoggedIn(login : string) : void {
+    this.whoIsLoggedIn = login;
   }
 
   createUser(user: User): Promise<any> {
@@ -65,16 +74,14 @@ export class UserService {
       .then(response => {
         if (response.status == 200) {
           this.isAuthorized = true;
-          window.location.href = "/register";
-        } else {
-          this.isAuthorized = false;
-          window.location.href = "/login";
+          //this.whoIsLoggedIn = JSON.stringify(data.login);
+          this.setwhoIsLoggedIn(JSON.stringify(data.login));
+          console.log("Kto sie zalogowal - " + this.getwhoIsLoggedIn());
+          //window.location.href = "/homePage";
         }
       }).catch(() => {
       console.log('catched');
-      this.router.navigate(['/login']);
-
-      //return Observable.of(false);
+      //this.router.navigate(['/login']);
     });
   }
 
