@@ -11,5 +11,5 @@ import java.util.List;
  * Created by lodwr on 06.05.2017.
  */
 public interface ProductBaseRepository extends JpaRepository<ProductBaseEntity, Long> {
-  List<ProductBaseEntity> findAllByNameStartingWith(String name);
+  List<ProductBaseEntity> findByName(String name);
 }

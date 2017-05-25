@@ -1,10 +1,4 @@
-<div>
-  {{message}}
-</div>
 <H1>Product database</H1>
-<div>
-  <label>Search by name:</label><input #searchValue/><button (click)="searchProduct(searchValue.value)">Search</button>
-</div>
 <div>
   <label>Name:</label> <input [(ngModel)]="newProduct.name"/>
   <label>Validity time (days):</label> <input [(ngModel)]="newProduct.baseValidityPeriod" type="number"/>
@@ -14,7 +8,7 @@
 
 <H2>Products</H2>
 <span *ngFor="let prod of products">
-    <baseProduct *ngIf="!(prod.id == -1)" [product]="prod"></baseProduct>
+  <baseProduct [product]="prod"></baseProduct>
 </span>
 
 <button (click)="test()">testBt</button>

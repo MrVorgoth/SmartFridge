@@ -36,26 +36,26 @@ public class ProductBaseController {
     return "ok";
   }
 
-  @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
+  @RequestMapping(path = "create", method = RequestMethod.POST, consumes = "application/json")
   @ResponseBody
   public ProductBaseTO createProduct(@RequestBody ProductBaseTO product) {
-    return ProductBaseMapper.mapProductBase(productBase.createProduct(product));
+    productBase.createProduct(product);
+    return product;
   }
 
-  @RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
-  @ResponseBody
-  public ProductBaseTO updateProduct(@RequestBody ProductBaseTO product) {
-    return productBase.updateProduct(product);
-  }
-
-  @RequestMapping(method = RequestMethod.DELETE)
-  @ResponseBody
-  public void deleteProduct(@RequestParam("id") long id) {
-    productBase.deleteProduct(id);
-  }
-
+<<<<<<< HEAD:src/main/server/com/pwr/controller/ProductBaseController.java
   @RequestMapping(path = "search", method = RequestMethod.GET)
   public List<ProductBaseTO> test(@RequestParam("name") String name) {
     return productBase.findByName(name);
+=======
+  @RequestMapping(path = "hello")
+  public String hello() {
+    return "Hello, world";
+  }
+
+  @RequestMapping(path = "test", method = RequestMethod.GET)
+  public ProductBaseTO test(@RequestParam("name") String name) {
+    return ProductBaseMapper.mapProductBase(productBase.findByName(name).get(0));
+>>>>>>> parent of e77ab1d... Finished working on BaseProductDatabase:src/main/java/com/pwr/controller/ProductBaseController.java
   }
 }

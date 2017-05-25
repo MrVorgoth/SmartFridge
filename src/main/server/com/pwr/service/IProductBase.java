@@ -2,6 +2,7 @@ package com.pwr.service;
 
 import com.pwr.model.ProductBaseEntity;
 import com.pwr.model.ProductBaseTO;
+import com.pwr.model.ProductEntity;
 
 import java.util.List;
 
@@ -11,11 +12,9 @@ import java.util.List;
 public interface IProductBase {
 
   List<ProductBaseTO> findAllProducts();
+
   void createProduct(String name, String unit, int validityPeriod);
-  void deleteProduct(long id);
-  ProductBaseTO updateProduct(ProductBaseTO product);
-  ProductBaseEntity createProduct(ProductBaseTO product);
-  List<ProductBaseTO> findByName(String name);
+  void createProduct(ProductBaseTO product);
 
-
+  List<ProductBaseEntity> findByName(String name);
 }
