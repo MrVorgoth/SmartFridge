@@ -11,17 +11,17 @@ $registrationFontColor: #FFF;
 $registrationBackgroundColor: #24313C;
 $registrationButtonBackground: #1AB188;
 $navHeight: 100px;
-$footerHeight: 50px;
-$footerBackground: #222;
-$fullPageHeight: calc(100vh - #{$navHeight} - #{$footerHeight});
+$fullPageHeight: calc(100vh - #{$navHeight});
 
 .loginSection {
   width: 100%;
   background-color: #EDEDED;
+
   .loginBox {
     width: 60%;
     min-height: $fullPageHeight;
     margin: 0 auto;
+
     .row {
       background-color: $registrationBackgroundColor;
       color: $registrationFontColor;
@@ -103,17 +103,5 @@ $fullPageHeight: calc(100vh - #{$navHeight} - #{$footerHeight});
         }
       }
     }
-  }
-}
-
-footer {
-  height: $footerHeight;
-  padding: 10px;
-  font-size: 18px;
-  letter-spacing: 0.5px;
-  background-color: $footerBackground;
-  p {
-    color: white;
-    text-align: center;
   }
 }

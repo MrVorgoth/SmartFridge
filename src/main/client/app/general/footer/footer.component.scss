@@ -1,0 +1,13 @@
+$footerHeight: 50px;
+
+footer {
+  height: $footerHeight;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  background-color: #111;
+  p {
+    color: white;
+    text-align: center;
+  }
+}

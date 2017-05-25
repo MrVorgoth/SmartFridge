@@ -11,27 +11,35 @@ $registrationFontColor: #FFF;
 $registrationBackgroundColor: #24313C;
 $registrationButtonBackground: #1AB188;
 $navHeight: 100px;
-$footerHeight: 50px;
-$footerBackground: #222;
-$fullPageHeight: calc(100vh - #{$navHeight} - #{$footerHeight});
+$fullPageHeight: calc(100vh - #{$navHeight});
 
 .registrationSection {
   width: 100%;
-  background-color: #EDEDED;
+  background-color: #F5F5F5;
   .registrationBox {
     width: 60%;
-    min-height: $fullPageHeight;
+  //  min-height: $fullPageHeight;
+    height: 100vh;
     margin: 0 auto;
     .row {
-      background-color: $registrationBackgroundColor;
+      background-color: #F5F5F5;
       color: $registrationFontColor;
-      min-height: $fullPageHeight;
+      //min-height: $fullPageHeight;
+      height: 100vh;
       padding-top: 20vh;
       [class^="col"] {
-        background-color: $registrationBackgroundColor;
+        background-color: #F5F5F5;
         margin: 0 auto;
         h2 {
           text-align: center;
+          color: black;
+          font-weight: 700;
+          font-size: 36px;
+        }
+        p {
+          color: black;
+          text-align: center;
+          font-size: 16px;
         }
         a {
           text-decoration: none;
@@ -74,28 +82,36 @@ $fullPageHeight: calc(100vh - #{$navHeight} - #{$footerHeight});
           }
         }
         form {
+
+          label {
+            color: black;
+            font-size: 16px;
+          }
           .form-control {
-            margin-top: 15px;
-            margin-bottom: 15px;
-            background-color: #24313C;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            background-color: white;
             border: 1px solid #555;
-            @include border-radius(0px);
+            font-size: 20px;
+            padding: 20px;
+            @include border-radius(5px);
           }
           .help-block {
             color: #DD0000;
           }
           .form-group {
-            margin: 0;
+            margin-top: 10px;
             .btnLogin {
+              margin-top: 20px;
               width: 100%;
               padding: 20px;
               font-size: 24px;
               font-weight: bold;
               text-transform: uppercase;
-              @include border-radius(0px);
-              background-color: $registrationButtonBackground;
+              @include border-radius(5px);
+              background-color: #57AC39;
               &:hover {
-                background-color: #3CD3AA;
+                background-color: #68BD4A;
                 color: #FFF;
               }
             }
@@ -103,17 +119,5 @@ $fullPageHeight: calc(100vh - #{$navHeight} - #{$footerHeight});
         }
       }
     }
-  }
-}
-
-footer {
-  height: $footerHeight;
-  padding: 10px;
-  font-size: 18px;
-  letter-spacing: 0.5px;
-  background-color: $footerBackground;
-  p {
-    color: white;
-    text-align: center;
   }
 }
