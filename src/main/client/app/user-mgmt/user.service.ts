@@ -75,7 +75,7 @@ export class UserService {
       .then(response => {
         if (response.status == 200) {
           this.isAuthorized = true;
-          //this.whoIsLoggedIn = JSON.stringify(data.login);
+
           this.setwhoIsLoggedIn(JSON.stringify(data.login));
           console.log("Kto sie zalogowal - " + this.getwhoIsLoggedIn());
           Cookie.set("cookie1", this.getwhoIsLoggedIn());

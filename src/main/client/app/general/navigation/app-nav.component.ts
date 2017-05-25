@@ -19,7 +19,7 @@ export class AppNavComponent {
     this.navCollapsed = !this.navCollapsed;
   };
   whoIsThere() : string {
-    console.log(Cookie.checkIfExists('cookie1'));
+    //console.log(Cookie.checkIfExists('cookie1'));
     //console.log(typeof (this.userService.whoIsLoggedIn));
     //console.log("Why won't it work?");
     //console.log(this.userService.getwhoIsLoggedIn());

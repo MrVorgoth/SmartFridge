@@ -58,7 +58,7 @@ public class UserService implements IUserService {
   @Override
   public boolean userIsValid(UserEntity entity) {
     if (entity.getLogin() == null || Objects.equals(entity.getLogin().trim(), "") || entity.getPassword() == null || Objects.equals(entity.getPassword().trim(), "")) {
-      return false;
+        return false;
     }
     List<UserEntity> users = userRepository.findAll();
     for (UserEntity user: users) {
