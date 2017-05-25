@@ -1,0 +1,10 @@
+<span>
+  <div>
+    <label>Name:</label> <input [(ngModel)]="product.name" (keypress)="productChange()"/>
+    <label>Validity time (days):</label> <input [(ngModel)]="product.baseValidityPeriod" type="number" (keypress)="productChange()"/>
+    <label>Units:</label> <input [(ngModel)]="product.units" (keypress)="productChange()"/>
+    <button *ngIf="modified" (click)="update(product)">Update</button>
+    <button (click)="delete(product.id)">Delete</button>
+  </div>
+</span>
+

@@ -1,0 +1,44 @@
+<div>
+
+  <ul>
+    <li *ngFor="let sProd of sProduct">
+      <span>{{sProd.id}}</span> {{sProduct.name}}
+    </li>
+  </ul>
+
+  <h1>Sandbox</h1>
+
+  <!--<div class="frame">-->
+    <!--{{singleProduct._name | uppercase}}-->
+    <!--<span class="glyphicon glyphicon glyphicon-question-sign qSign"></span>-->
+    <!--<img src="{{singleProduct._imageUrl}}" alt="HTML5 Icon" style="width:128px;height:128px;margin:10px;">-->
+
+    <!--<div>-->
+      <!--<div>-->
+      <!--{{singleProduct._quantity}} <span>{{singleProduct._unit}}</span>-->
+      <!--</div>-->
+
+      <!--<div class="frame-button">-->
+        <!--<span class="glyphicon glyphicon-trash col-xs-6 gButton"> TRASH</span>-->
+        <!--<span class="glyphicon glyphicon glyphicon-cutlery col-xs-6 gButton"> EAT</span>-->
+      <!--</div>-->
+    <!--</div>-->
+
+  <!--</div>-->
+
+  <div>
+    <div class='wrapper'>
+      <div class='container' [dragula]='"first-bag"'>
+        <p>First</p>
+      </div>
+      <div class='container' [dragula]='"first-bag"'>
+        <p>Second</p>
+      </div>
+    </div>
+  </div>
+
+  <button (click)="saveProduct()">testBt</button>
+
+
+
+</div>
