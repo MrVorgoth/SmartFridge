@@ -3,6 +3,7 @@ import {Headers, Http, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {Cookie} from "../general/cookies/cookies.component";
 
 @Injectable()
 export class UserService {
@@ -18,7 +19,7 @@ export class UserService {
   private searchUserUrl: string = "http://localhost:8080/user/search";
   private validateUserUrl: string = "http://localhost:8080/user/validate";
 
-  constructor(private http: Http, private router:Router) {
+  constructor(private http: Http, private router:Router/*, private cookies: Cookie*/) {
   }
 
   getAllUsers(): Promise<User[]> {
@@ -77,6 +78,7 @@ export class UserService {
           //this.whoIsLoggedIn = JSON.stringify(data.login);
           this.setwhoIsLoggedIn(JSON.stringify(data.login));
           console.log("Kto sie zalogowal - " + this.getwhoIsLoggedIn());
+          Cookie.set("cookie1", this.getwhoIsLoggedIn());
           //window.location.href = "/homePage";
         }
       }).catch(() => {
