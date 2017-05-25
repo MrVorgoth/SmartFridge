@@ -2,12 +2,15 @@ import {Injectable} from '@angular/core';
 import {Headers, Http, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
+import {Cookie} from "../general/cookies/cookies.component";
 
 @Injectable()
 export class UserService {
   private users: User[] = [];
   private sequencer: number = 1;
   private isAuthorized: boolean = false;
+  private whoIsLoggedIn: string = "test";
   private headers = new Headers({'Access-Control-Allow-Origin': '*'});
   private postHeaders = new Headers({'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'});
 
@@ -16,7 +19,7 @@ export class UserService {
   private searchUserUrl: string = "http://localhost:8080/user/search";
   private validateUserUrl: string = "http://localhost:8080/user/validate";
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private router:Router/*, private cookies: Cookie*/) {
   }
 
   getAllUsers(): Promise<User[]> {
@@ -28,6 +31,14 @@ export class UserService {
 
   getAuthorizedStatus() : boolean {
     return this.isAuthorized;
+  }
+
+  getwhoIsLoggedIn() : string {
+    return this.whoIsLoggedIn;
+  }
+
+  setwhoIsLoggedIn(login : string) : void {
+    this.whoIsLoggedIn = login;
   }
 
   createUser(user: User): Promise<any> {
@@ -64,14 +75,15 @@ export class UserService {
       .then(response => {
         if (response.status == 200) {
           this.isAuthorized = true;
-          window.location.href = "/register";
-        } else {
-          this.isAuthorized = false;
-          window.location.href = "/login";
+          //this.whoIsLoggedIn = JSON.stringify(data.login);
+          this.setwhoIsLoggedIn(JSON.stringify(data.login));
+          console.log("Kto sie zalogowal - " + this.getwhoIsLoggedIn());
+          Cookie.set("cookie1", this.getwhoIsLoggedIn());
+          //window.location.href = "/homePage";
         }
       }).catch(() => {
-      window.location.href = "/login";
-      //return Observable.of(false);
+      console.log('catched');
+      //this.router.navigate(['/login']);
     });
   }
 

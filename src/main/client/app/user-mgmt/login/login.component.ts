@@ -30,4 +30,8 @@ export class LoginComponent implements OnInit{
   searchUser(login: string): void{
     this.userService.searchUser(login).then(response => this.users = response);
   }
+
+  whoAreYou() : string {
+    return this.userService.getwhoIsLoggedIn();
+  }
 }

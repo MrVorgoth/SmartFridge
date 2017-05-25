@@ -17,7 +17,6 @@ public class UserMapper {
     user.setPassword(userEntity.getPassword());
     user.setName(userEntity.getName());
     user.setSurname(userEntity.getSurname());
-
     return user;
   }
 
