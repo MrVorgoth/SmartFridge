@@ -8,7 +8,6 @@ import {LoginComponent} from "./user-mgmt/login/login.component";
 import {RegistrationComponent} from "./user-mgmt/registration/registartion.component";
 import {ProductDatabaseComponent} from "./fridge-mgmt/product-database/product-database.component";
 import {HomePageComponent} from "./general/home-page/home-page.component";
-import {Cookie} from "./general/cookies/cookies.component";
 
 const appRoutes: Routes = [
   {
@@ -51,10 +50,6 @@ const appRoutes: Routes = [
   {
     path: 'homePage',
     component: HomePageComponent
-  },
-  {
-    path: 'cookie',
-    component: Cookie
   }
 ] as Routes;
 

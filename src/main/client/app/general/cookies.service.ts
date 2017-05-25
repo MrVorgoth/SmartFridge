@@ -1,11 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Component} from "@angular/core";
-
-@Component({
-  selector: 'cookie',
-  template: require('./cookies.component.html!text'),
-  styles: [require('./cookies.component.css!text')]
-} as Component)
 
 @Injectable()
 export class Cookie {

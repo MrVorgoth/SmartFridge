@@ -3,7 +3,7 @@ import {Headers, Http, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
-import {Cookie} from "../general/cookies/cookies.component";
+import {Cookie} from "../general/cookies.service";
 
 @Injectable()
 export class UserService {
