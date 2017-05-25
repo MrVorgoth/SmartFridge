@@ -30,7 +30,7 @@ public class UserShoppingListEntity {
         this.quantity = quantity;
     }
 
-    /*@OneToOne(cascade = {CascadeType.ALL},mappedBy = "userShoppingList")
+    @OneToOne(cascade = {CascadeType.ALL},mappedBy = "userShoppingList")
     private UserFridgeEntity userFridge;
 
     public UserFridgeEntity getUserFridge() {
@@ -39,7 +39,7 @@ public class UserShoppingListEntity {
 
     public void setUserFridge(UserFridgeEntity userFridge) {
         this.userFridge = userFridge;
-    }*/
+    }
 
     @ManyToMany
     private Collection<ProductEntity> products;
