@@ -11,12 +11,9 @@
   <a class="navbar-brand" href="http://localhost:3000/homePage"><img src="images/fridge.png" height="50"></a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent" [class.show]="!navCollapsed">
     <ul class="navbar-nav mr-auto">
-      <!--<li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
-      </li>-->
       <li class="nav-item">
-        <a *ngIf="checkIfEmpty()" class="nav-link" routerLink="/login">Login</a>
-        <a *ngIf="!checkIfEmpty()" class="nav-link" routerLink="/homePage">Logout</a>
+        <a *ngIf="!checkIfLoggedIn()" class="nav-link" routerLink="/login">Login</a>
+        <a *ngIf="checkIfLoggedIn()" class="nav-link" routerLink="/homePage">Logout</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/register">Register</a>
@@ -31,11 +28,17 @@
         <a class="nav-link" routerLink="/productDatabase">Product Database</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link">Hello {{whoIsThere()}}</a>
       </li>
-      <!--<li class="nav-item" routerLinkActive="active">
-        <a class="nav-link">Food history</a>
-      </li>-->
+      <li class="nav-item">
+        <button (click)="unsetCookie()">Unset Cookie test</button>
+      </li>
+      <li class="nav-item">
+        <button (click)="checkCookieStatus()">Check Cookie Status test</button>
+      </li>
     </ul>
   </div>
 </nav>

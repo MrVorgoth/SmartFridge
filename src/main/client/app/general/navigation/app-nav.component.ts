@@ -21,11 +21,19 @@ export class AppNavComponent {
     return Cookie.get("cookie1");
   }
 
-  checkIfEmpty(): boolean {
+  checkIfLoggedIn(): boolean {
     if(Cookie.get("cookie1") != "") {
       return true;
     } else {
       return false;
     }
+  }
+
+  unsetCookie(): void {
+    Cookie.delete("cookie1");
+  }
+
+  checkCookieStatus(): void {
+    console.log(Cookie.checkIfExists("cookie1"));
   }
 }
