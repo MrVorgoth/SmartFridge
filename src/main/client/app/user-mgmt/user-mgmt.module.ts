@@ -9,6 +9,7 @@ import {LoginComponent} from "../user-mgmt/login/login.component";
 import {RegistrationComponent} from "../user-mgmt/registration/registartion.component";
 import {DragulaModule} from "ng2-dragula";
 import {UserService} from "./user.service";
+import {ProfileComponent} from "./profile/profile.component";
 
 @NgModule({
   imports: [
@@ -19,8 +20,8 @@ import {UserService} from "./user.service";
     HttpModule,
     DragulaModule
   ],
-  declarations: [LoginComponent, RegistrationComponent],
-  exports: [LoginComponent, RegistrationComponent],
+  declarations: [LoginComponent, RegistrationComponent, ProfileComponent],
+  exports: [LoginComponent, RegistrationComponent, ProfileComponent],
   providers: [UserService]
 } as NgModule)
 export class UserMgmtModule {

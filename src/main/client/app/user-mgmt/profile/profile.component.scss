@@ -1,0 +1,28 @@
+// Variables
+$registrationFontColor: #FFF;
+$registrationBackgroundColor: #24313C;
+$navHeight: 100px;
+$fullPageHeight: calc(100vh - #{$navHeight});
+
+.profileSection {
+  width: 100%;
+  background-color: #EDEDED;
+  font-size: 24px;
+
+  .profileBox {
+    width: 60%;
+    min-height: $fullPageHeight;
+    margin: 0 auto;
+
+    .row {
+      background-color: $registrationBackgroundColor;
+      color: $registrationFontColor;
+      min-height: $fullPageHeight;
+      padding-top: 25vh;
+      [class^="col"] {
+        background-color: $registrationBackgroundColor;
+        margin: 0 auto;
+      }
+    }
+  }
+}
