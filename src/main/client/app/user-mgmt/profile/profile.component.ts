@@ -27,12 +27,7 @@ export class ProfileComponent implements OnInit {
   }
 
   myLogin(): string {
-    //console.log(this.loadUsers());
     return Cookie.get("cookie1");
-  }
-
-  test(): string {
-    return "dziala";
   }
 
   myProfile(): number {
@@ -46,7 +41,6 @@ export class ProfileComponent implements OnInit {
         console.log("Password: " + this.users[i].password);
         console.log("Name: " + this.users[i].name);
         console.log("Surname: " + this.users[i].surname);
-        console.log(i);
         this.checkIfFunctionEnded = true;
         return i;
       }
@@ -56,7 +50,6 @@ export class ProfileComponent implements OnInit {
   myInformationLogin(): string {
     if (this.checkIfFunctionEnded) {
       var a = this.users[this.myProfile()].login;
-      //this.checkIfFunctionEnded = false;
       return a.toString();
     }
   }
@@ -64,7 +57,6 @@ export class ProfileComponent implements OnInit {
   myInformationName(): string {
     if (this.checkIfFunctionEnded) {
       var a = this.users[this.myProfile()].name;
-      //this.checkIfFunctionEnded = false;
       return a.toString();
     }
   }
@@ -72,7 +64,6 @@ export class ProfileComponent implements OnInit {
   myInformationSurname(): string {
     if (this.checkIfFunctionEnded) {
       var a = this.users[this.myProfile()].surname;
-      //this.checkIfFunctionEnded = false;
       return a.toString();
     }
   }

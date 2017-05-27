@@ -2,13 +2,18 @@
   <div class="profileBox">
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <p>Hello {{ myLogin() }} </p>
         <div class="profile-info">
-          <p> Test: {{ test() }} </p>
-          <button (click)="myProfile()">Informacje profilowe</button>
-            <p> Login: {{ myInformationLogin() }} </p>
-            <p> Name: {{ myInformationName() }} </p>
-            <p> Surname: {{ myInformationSurname() }} </p>
+            <h1>Dane osobowe</h1>
+            <div class="profile-info-box">
+              <p>Login: </p><p class="profile-color"> {{ myInformationLogin() }} </p>
+            </div>
+            <div class="profile-info-box">
+              <p>Imię: </p><p class="profile-color">  {{ myInformationName() }} </p>
+            </div>
+            <div class="profile-info-box">
+              <p>Nazwisko: </p><p class="profile-color">  {{ myInformationSurname() }} </p>
+            </div>
+          <button class="btn" (click)="myProfile()">Pokaż dane osobowe</button>
         </div>
       </div>
     </div>

@@ -15,33 +15,24 @@
         <a *ngIf="checkIfLoggedIn()" class="nav-link" routerLink="/profile">My Profile</a>
       </li>
       <li class="nav-item">
+        <a *ngIf="checkIfLoggedIn()" class="nav-link" routerLink="/myFridge">My Fridge</a>
+      </li>
+      <li class="nav-item">
         <a *ngIf="!checkIfLoggedIn()" class="nav-link" routerLink="/login">Login</a>
-        <a *ngIf="checkIfLoggedIn()" class="nav-link" routerLink="/homePage">Logout</a>
+        <a *ngIf="checkIfLoggedIn()" class="nav-link" routerLink="/homePage" (click)="unsetCookie()">Logout</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/register">Register</a>
+        <a *ngIf="!checkIfLoggedIn()" class="nav-link" routerLink="/register">Register</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/myFridge">My Fridge</a>
-      </li>
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link" routerLink="/shoppingList">Shopping List</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/productDatabase">Product Database</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">Hello {{whoIsThere()}}</a>
-      </li>
-      <li class="nav-item">
-        <button (click)="unsetCookie()">Unset Cookie test</button>
-      </li>
-      <li class="nav-item">
-        <button (click)="checkCookieStatus()">Check Cookie Status test</button>
-      </li>
+      <li class="nav-item" (click)="checkCookieStatus()">
+        <a *ngIf="checkIfLoggedIn()" class="nav-link">Cookie Status</a>
+      </li>-->
     </ul>
   </div>
 </nav>

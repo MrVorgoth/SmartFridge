@@ -1,3 +1,10 @@
+// Mixins
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
 // Variables
 $registrationFontColor: #FFF;
 $registrationBackgroundColor: #24313C;
@@ -15,13 +22,57 @@ $fullPageHeight: calc(100vh - #{$navHeight});
     margin: 0 auto;
 
     .row {
-      background-color: $registrationBackgroundColor;
-      color: $registrationFontColor;
+      //background-color: #F5F5F5;
+      color: #24313C;
       min-height: $fullPageHeight;
-      padding-top: 25vh;
+      height: 100vh;
+      padding-top: 20vh;
+
       [class^="col"] {
-        background-color: $registrationBackgroundColor;
+        //background-color: #F5F5F5;
         margin: 0 auto;
+
+        .profile-info {
+          text-align: center;
+          margin: 0 auto;
+          background-color: white;
+          padding: 50px;
+
+          button {
+            @include border-radius(0px);
+            color: white;
+            background-color: #57AC39;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 18px;
+            &:hover {
+              background-color: #68BD4A;
+            }
+          }
+
+          h1 {
+            color: black;
+            font-weight: 700;
+            font-size: 36px;
+            padding-bottom: 10px;
+          }
+
+          .profile-info-box {
+            text-align: left;
+            display: block;
+            padding: 5px 0;
+
+            p {
+              display: inline-block;
+            }
+
+            .profile-color {
+              color: #57AC39;
+              padding-left: 10px;
+            }
+          }
+        }
       }
     }
   }

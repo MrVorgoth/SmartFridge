@@ -12,14 +12,9 @@ import {Cookie} from "../cookies.service";
 export class AppNavComponent {
   navCollapsed: boolean = true;
 
-
   toggleNavigation(): void {
     this.navCollapsed = !this.navCollapsed;
   };
-
-  whoIsThere(): string {
-    return Cookie.get("cookie1");
-  }
 
   checkIfLoggedIn(): boolean {
     if(Cookie.get("cookie1") != "") {

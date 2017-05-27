@@ -8,8 +8,6 @@
           <button class="btn btnSquare ">Log In</button>
         </a>
         <h2>Log In</h2>
-        <h1>Uwaga testowanie</h1>
-        <h3>Witaj, {{whoAreYou()}}</h3>
         <form name="form" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
           <div>
             <input type="text" class="form-control" placeholder="Login" name="login" [(ngModel)]="user.login" #login="ngModel" required />
