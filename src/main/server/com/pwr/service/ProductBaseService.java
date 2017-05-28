@@ -71,16 +71,16 @@ public class ProductBaseService implements IProductBaseService {
     List<ProductBaseTO> products = new ArrayList<ProductBaseTO>();
     List<ProductBaseEntity> productEntities;
 
-//    if(nameFilter != null && categoryId != categoryId)
-//      productEntities = productBaseRepository.find(nameFilter, categoryId);
-//    else if(categoryId != null)
-//      productEntities =  productBaseRepository.findByCat(categoryId);
-//
-//    productEntities =  productBaseRepository.findByName(nameFilter);
-//
-//    for(ProductBaseEntity base : productEntities) {
-//      products.add(ProductBaseMapper.mapProductBase(base));
-//    }
+    if(nameFilter != null && categoryId != categoryId)
+      productEntities = productBaseRepository.find(nameFilter, categoryId);
+    else if(categoryId != null)
+      productEntities =  productBaseRepository.findByCat(categoryId);
+
+    productEntities =  productBaseRepository.findByName(nameFilter);
+
+    for(ProductBaseEntity base : productEntities) {
+      products.add(ProductBaseMapper.mapProductBase(base));
+    }
 
     return products;
   }

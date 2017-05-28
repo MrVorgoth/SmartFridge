@@ -13,15 +13,15 @@ import java.util.List;
  * Created by lodwr on 06.05.2017.
  */
 public interface ProductBaseRepository extends JpaRepository<ProductBaseEntity, Long> {
-  Collection<ProductBaseEntity> findAllByNameStartingWith(String name);
+  List<ProductBaseEntity> findAllByNameStartingWith(String name);
 
   @Query("select p from ProductBaseEntity p where LOWER(p.name) LIKE LOWER(CONCAT('%',:pName, '%')) AND p.category.id = :catId")
-  public Collection<ProductBaseEntity> find(@Param("pName") String pName, @Param("catId") String catId);
+  public List<ProductBaseEntity> find(@Param("pName") String pName, @Param("catId") String catId);
 
   @Query("select p from ProductBaseEntity p where LOWER(p.name) LIKE LOWER(CONCAT('%',:pName, '%'))")
-  public Collection<ProductBaseEntity> findByName(@Param("pName") String pName);
+  public List<ProductBaseEntity> findByName(@Param("pName") String pName);
 
   @Query("select p from ProductBaseEntity p where p.category.id = :catId")
-  public Collection<ProductBaseEntity> findByCat(@Param("catId") String catId);
+  public List<ProductBaseEntity> findByCat(@Param("catId") String catId);
 
 }
