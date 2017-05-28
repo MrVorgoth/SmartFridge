@@ -14,7 +14,7 @@ import java.util.List;
  * Created by lodwr on 06.05.2017.
  */
 @Service
-public class ProductBaseService implements IProductBase{
+public class ProductBaseService implements IProductBaseService {
 
   @Autowired
   private ProductBaseRepository productBaseRepository;
@@ -62,6 +62,26 @@ public class ProductBaseService implements IProductBase{
     for (ProductBaseEntity pbe : productBaseRepository.findAllByNameStartingWith(name)) {
       products.add(ProductBaseMapper.mapProductBase(pbe));
     }
+    return products;
+  }
+
+  @Override
+  public List<ProductBaseTO> getProducts(String nameFilter, String categoryId) {
+
+    List<ProductBaseTO> products = new ArrayList<ProductBaseTO>();
+    List<ProductBaseEntity> productEntities;
+
+//    if(nameFilter != null && categoryId != categoryId)
+//      productEntities = productBaseRepository.find(nameFilter, categoryId);
+//    else if(categoryId != null)
+//      productEntities =  productBaseRepository.findByCat(categoryId);
+//
+//    productEntities =  productBaseRepository.findByName(nameFilter);
+//
+//    for(ProductBaseEntity base : productEntities) {
+//      products.add(ProductBaseMapper.mapProductBase(base));
+//    }
+
     return products;
   }
 }

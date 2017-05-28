@@ -17,6 +17,7 @@ public class ProductMapper {
         product.setFresh(productEntity.getFresh());
         product.setInsertDate(productEntity.getInsertDate());
         product.setQuantity(productEntity.getQuantity());
+        product.setProductBase(ProductBaseMapper.mapProductBase(productEntity.getProductBaseEntity()));
         return product;
     }
 
