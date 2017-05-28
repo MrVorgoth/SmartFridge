@@ -22,7 +22,7 @@ public class UserFridgeController {
     @Autowired
     private UserFridgeRepository userFridgeRepository;
 
-    @RequestMapping(path = "content", method = RequestMethod.GET)
+    @RequestMapping(path = "getContent", method = RequestMethod.GET)
     @ResponseBody
     public List<ProductTO> findAllUsers(
             @RequestParam("login") String login
@@ -30,7 +30,7 @@ public class UserFridgeController {
         return userFridgeService.getFridgeContent(login);
     }
 
-    @RequestMapping(path = "setContent", method = RequestMethod.GET)
+    @RequestMapping(path = "setContent", method = RequestMethod.PUT)
     @ResponseBody
     public void updateContent(
             @RequestParam("login") String login,

@@ -21,7 +21,7 @@ export class User {
   login : string;
 }
 
-export class CategoryEntity {
+export class Category {
   id : number;
   name : string;
   imageURL : string;
