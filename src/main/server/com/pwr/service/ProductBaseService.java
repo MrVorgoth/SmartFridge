@@ -66,14 +66,14 @@ public class ProductBaseService implements IProductBaseService {
   }
 
   @Override
-  public List<ProductBaseTO> getProducts(String nameFilter, String categoryId) {
+  public List<ProductBaseTO> getProducts(String nameFilter, long categoryId) {
 
     List<ProductBaseTO> products = new ArrayList<ProductBaseTO>();
     List<ProductBaseEntity> productEntities;
 
     if(nameFilter != null && categoryId != categoryId)
       productEntities = productBaseRepository.find(nameFilter, categoryId);
-    else if(categoryId != null)
+    else if(categoryId > -1)
       productEntities =  productBaseRepository.findByCat(categoryId);
 
     productEntities =  productBaseRepository.findByName(nameFilter);

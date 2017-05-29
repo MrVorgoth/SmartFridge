@@ -28,13 +28,16 @@ public class UserFridgeService implements IUserFridgeService {
     @Override
     public List<ProductTO> getFridgeContent(String login) {
 
-        UserEntity userEntity = userRepository.findByLogin(login).get(0);
-        UserFridgeEntity fridge = userFridgeRepository.findByUserId(userEntity.getId());
-
-        if(fridge == null) {
+        UserEntity userEntity = null;
+        UserFridgeEntity fridge = null;
+        try {
+            userEntity = userRepository.findByLogin(login).get(0);
+            fridge = userFridgeRepository.findByUserId(userEntity.getId());
+        }catch ( IndexOutOfBoundsException e) {
             fridge = new UserFridgeEntity();
             fridge.setUser(userEntity);
             userFridgeRepository.save(fridge);
+            return new ArrayList<ProductTO>();
         }
 
         List<ProductTO> products = new ArrayList<ProductTO>();
@@ -57,8 +60,6 @@ public class UserFridgeService implements IUserFridgeService {
 
         fridge.setProducts(productEntities);
 
-        UserFridgeEntity fg = new UserFridgeEntity();
-
-        userFridgeRepository.save(fg);
+        userFridgeRepository.save(fridge);
     }
 }

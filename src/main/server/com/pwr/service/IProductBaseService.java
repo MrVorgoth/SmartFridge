@@ -19,7 +19,7 @@ public interface IProductBaseService {
   List<ProductBaseTO> findByName(String name);
 
   ///
-  List<ProductBaseTO> getProducts(String nameFilter, String categoryId);
+  List<ProductBaseTO> getProducts(String nameFilter, long categoryId);
 
 
 }

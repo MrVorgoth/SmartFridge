@@ -8,7 +8,7 @@ import {Category} from "./Structures";
 export class CategoryService {
   private postHeaders = new Headers({'Content-Type': 'application/json'});
 
-  private getCategories : string = "http://localhost:8080/services/category/all";
+  private getCategories : string = "http://localhost:8080/category/all";
 
   constructor(private http: Http) { }
 

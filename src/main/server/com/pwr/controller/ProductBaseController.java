@@ -6,6 +6,7 @@ import com.pwr.service.IProductBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,12 +19,6 @@ public class ProductBaseController {
 
   @Autowired
   private IProductBaseService productBaseService;
-
-  @RequestMapping(path = "all", method = RequestMethod.GET)
-  @ResponseBody
-  public List<ProductBaseTO> findAllPatients() {
-    return productBaseService.findAllProducts();
-  }
 
   @RequestMapping(path = "create", method = RequestMethod.GET)
   @ResponseBody
@@ -55,7 +50,12 @@ public class ProductBaseController {
   }
 
   @RequestMapping(path = "search", method = RequestMethod.GET)
-  public List<ProductBaseTO> test(@RequestParam("name") String name) {
-    return productBaseService.findByName(name);
+  public List<ProductBaseTO> search(@RequestParam("name") String name, @RequestParam("categoryId") long categoryId) {
+    return productBaseService.getProducts(name, categoryId);
+  }
+
+  @RequestMapping(path = "all", method = RequestMethod.GET)
+  public List<ProductBaseTO> getAll() {
+    return productBaseService.getProducts("", -1);
   }
 }

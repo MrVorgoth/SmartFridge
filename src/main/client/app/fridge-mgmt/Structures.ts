@@ -4,6 +4,7 @@ export class ProductBase{
   units : string;
   baseValidityPeriod : number;
   description : string;
+  category : Category;
 }
 
 export class Product {

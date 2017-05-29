@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router'
-import {ProductService, ProductBase} from "../products.service";
+import {Product, ProductBase} from "../Structures";
+import {FridgeService} from "../fridge.service";
 
 
 @Component({
@@ -10,15 +11,22 @@ import {ProductService, ProductBase} from "../products.service";
   styles: [require('./my-fridge.component.css!text')]
 } as Component)
 export class MyFrideComponent implements OnInit{
-  products : ProductBase[];
-  constructor(private productService: ProductService){}
+  products : Product[];
+  constructor(
+    private fridgeService: FridgeService,
+
+  ){}
 
   ngOnInit(): void {
-    this.getProducts();
+    // this.getProducts();
   }
 
-  getProducts(): void {
-   this.productService.getAllProducts().then(products => this.products = products);
+  // getProducts(): void {
+  //  this.productService.getAllProducts().then(products => this.products = products);
+  // }
+
+  reciveProduct(prod : ProductBase) {
+      console.log("reciveProducts");
   }
 
 }

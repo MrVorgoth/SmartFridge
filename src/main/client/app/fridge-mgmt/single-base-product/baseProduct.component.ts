@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import {ProductBase, ProductService} from "../products.service";
+import {ProductService} from "../products.service";
+import {ProductBase} from "../Structures";
 
 @Component({
   selector: 'baseProduct',

@@ -5,12 +5,12 @@ import 'rxjs/add/operator/toPromise';
 import {ProductBase} from "./Structures";
 
 @Injectable()
-export class ProductService {
+export class ProductBaseService {
   private postHeaders = new Headers({'Content-Type': 'application/json'});
 
-  private getBaseProductsUrl : string = "http://localhost:8080/services/productBase/all";
-  private searchProductsUrl : string = "http://localhost:8080/services/productBase/search";
-  private createProductUrl : string = "http://localhost:8080/services/productBase";
+  private getBaseProductsUrl : string = "http://localhost:8080/productBase/all";
+  private searchProductsUrl : string = "http://localhost:8080/productBase/search";
+  private createProductUrl : string = "http://localhost:8080/productBase";
 
   constructor(private http: Http) { }
 
@@ -46,9 +46,10 @@ export class ProductService {
       .catch(this.handleError);
   }
 
-  searchProducts(name: string) : Promise<ProductBase[]> {
+  searchProducts(name: string, categoryId : string) : Promise<ProductBase[]> {
     let params = new URLSearchParams();
     params.append("name", name);
+    params.append("categoryId", categoryId);
 
     return this.http.get(this.searchProductsUrl, {headers:this.postHeaders, search:params})
       .toPromise()
