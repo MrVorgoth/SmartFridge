@@ -18,6 +18,7 @@ public class ProductBaseMapper {
     productBase.setBaseValidityPeriod(productBaseEntity.getBaseValidityPeriod());
     productBase.setUnits(productBaseEntity.getUnits());
     productBase.setId(productBaseEntity.getId());
+    productBase.setCategory(CategoryMapper.mapCategory(productBaseEntity.getCategory()));
 
     return productBase;
   }
@@ -28,6 +29,7 @@ public class ProductBaseMapper {
     productBase.setUnits(productBaseTO.getUnits());
     productBase.setBaseValidityPeriod(productBaseTO.getBaseValidityPeriod());
     productBase.setId(productBaseTO.getId());
+    productBase.setCategory(CategoryMapper.mapCategory(productBaseTO.getCategory()));
 
     return productBase;
   }

@@ -1,0 +1,8 @@
+Hello fridge content is below!
+<div>
+  <span *ngFor="let prod of products">
+    {{prod.productBase.name}}
+    <input type="text" [(ngModel)]="prod.quantity"/>
+  </span>
+  <button (click)="sync()">Save</button>
+</div>

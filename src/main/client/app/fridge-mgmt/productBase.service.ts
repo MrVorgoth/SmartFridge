@@ -1,15 +1,12 @@
-import {Injectable} from '@angular/core';
-import { PRODUCTS } from './mockProducts'
+import {Injectable} from "@angular/core";
+
 import {Headers, Http, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {ProductBase} from "./Structures";
 
 @Injectable()
-export class ProductService {
-  private products: ProductBase[] = [];
-  private sequencer: number = 1;
-  private headers = new Headers({'Access-Control-Allow-Origin': '*'});
-  private postHeaders = new Headers({'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'});
+export class ProductBaseService {
+  private postHeaders = new Headers({'Content-Type': 'application/json'});
 
   private getBaseProductsUrl : string = "http://localhost:8080/productBase/all";
   private searchProductsUrl : string = "http://localhost:8080/productBase/search";
@@ -18,7 +15,7 @@ export class ProductService {
   constructor(private http: Http) { }
 
   getAllProducts() : Promise<ProductBase[]> {
-    return this.http.get(this.getBaseProductsUrl, {headers:this.headers})
+    return this.http.get(this.getBaseProductsUrl, {headers:this.postHeaders})
       .toPromise()
       .then(response => response.json() as ProductBase[])
       .catch(this.handleError);
@@ -43,34 +40,25 @@ export class ProductService {
     let params = new URLSearchParams();
     params.append("id", id.toString());
 
-    return this.http.delete(this.createProductUrl, {headers:this.headers, search: params})
+    return this.http.delete(this.createProductUrl, {headers:this.postHeaders, search: params})
       .toPromise()
       .then(response => response.status)
       .catch(this.handleError);
   }
 
-  searchProducts(name: string) : Promise<ProductBase[]> {
+  searchProducts(name: string, categoryId : string) : Promise<ProductBase[]> {
     let params = new URLSearchParams();
     params.append("name", name);
+    params.append("categoryId", categoryId);
 
-    return this.http.get(this.searchProductsUrl, {headers:this.headers, search:params})
+    return this.http.get(this.searchProductsUrl, {headers:this.postHeaders, search:params})
       .toPromise()
       .then(response => response.json() as ProductBase[])
       .catch(this.handleError);
-  }
-
-  create(): void {
-    let args = {};
-    args['name'] = 'test';
-    args['validityPeriod'] = 2;
-    args['unit'] = 'kg';
-
-    this.http.get(this.createProductUrl, {headers:this.headers});
   }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   };
-
 }

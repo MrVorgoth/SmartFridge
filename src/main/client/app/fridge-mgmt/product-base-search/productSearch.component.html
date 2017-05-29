@@ -1,0 +1,19 @@
+<div>
+  <H1>Hello Products:</H1>
+  <div>
+    <input type="text" [(ngModel)]="searchPhrase"/>
+
+  </div>
+
+  <span *ngFor="let cat of categories">
+    <button (click)="selectCategory(cat)">{{cat.name}}</button>
+  </span>
+  <br/>
+  <button (click)="filter()">filter</button>
+  <br/>
+
+  <span *ngFor="let prod of findResult">
+    {{prod.name}} <button (click)="selectProductBase(prod)">+</button>
+  </span>
+
+</div>

@@ -52,6 +52,10 @@ public class UserFridgeEntity {
         return products;
     }
 
+    public void setProducts(Collection<ProductEntity> products) {
+        this.products = products;
+    }
+
     public void setUserFridge(Collection<ProductEntity> products) {
         this.products = products;
     }

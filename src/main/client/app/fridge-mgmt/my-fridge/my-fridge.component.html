@@ -1,9 +1,10 @@
-<div>
-  <h2>My fridge</h2>
-  <ul>
-    <li *ngFor="let product of products">
-      <span>{{product._id}}</span>{{product._name}}
-      <single-product [product]="product"></single-product>
-    </li>
-  </ul>
+<div style="margin-top: 70px ">
+  <div>
+    <fridge-content></fridge-content>
+  </div>
+  <div>
+    <product-base-search></product-base-search>
+  </div>
 </div>
+
+

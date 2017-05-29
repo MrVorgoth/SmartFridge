@@ -15,6 +15,8 @@ public class ProductTO {
 
     private int quantity;
 
+    private ProductBaseTO productBase;
+
     public Long getId() {
         return id;
     }
@@ -46,4 +48,8 @@ public class ProductTO {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public ProductBaseTO getProductBase() {return this.productBase;}
+
+    public void setProductBase(ProductBaseTO productBase) {this.productBase = productBase;}
 }

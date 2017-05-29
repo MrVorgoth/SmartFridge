@@ -4,7 +4,9 @@ import com.pwr.model.ProductBaseEntity;
 import com.pwr.model.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -12,4 +14,16 @@ import java.util.List;
  */
 public interface ProductBaseRepository extends JpaRepository<ProductBaseEntity, Long> {
   List<ProductBaseEntity> findAllByNameStartingWith(String name);
+
+  List<ProductBaseEntity> findAll();
+
+  @Query("select p from ProductBaseEntity p where LOWER(p.name) LIKE CONCAT('%',:pName,'%') AND p.category.id = :catId")
+  public List<ProductBaseEntity> find(@Param("pName") String pName, @Param("catId") long catId);
+
+  @Query("select p from ProductBaseEntity p where LOWER(p.name) LIKE CONCAT('%',:pName,'%')")
+  public List<ProductBaseEntity> findByName(@Param("pName") String pName);
+
+  @Query("select p from ProductBaseEntity p where p.category.id = :catId")
+  public List<ProductBaseEntity> findByCat(@Param("catId") long catId);
+
 }

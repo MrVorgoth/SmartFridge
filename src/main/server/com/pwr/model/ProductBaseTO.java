@@ -12,6 +12,12 @@ public class ProductBaseTO {
 
   private int baseValidityPeriod;
 
+  private CategoryTO category;
+
+  public CategoryTO getCategory() {return this.category;}
+
+  public void setCategory(CategoryTO category) {this.category = category;}
+
   public Long getId() {
     return id;
   }
