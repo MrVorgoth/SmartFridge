@@ -52,4 +52,5 @@ public class RequiedProductEntity {
     public void setProductBase(ProductBaseEntity productBase) {
         this.productBase = productBase;
     }
+
 }

@@ -1,21 +1,75 @@
-<div>
-  <h1>Shopping lists, hey</h1>
-  <div id="search-component">
-    <h4>Add products to list:</h4>
-    <input #searchBox id="search-box" placeholder="Search..." (keyup)="search(searchBox.value)" />
-    <span class="glyphicon glyphicon-search"></span>
-    <div>
-      <div *ngFor="let product of foundProducts"
-           (click)="addToLis(product)" class="search-result" >
-        {{product._name}}
+<section class="shoppingListSection">
+
+  <div class="shoppingListContent">
+    <div class="row">
+      <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+        <div class="shoppingListProducts">
+          <h1>Lista zakupów</h1>
+          <ul>
+            <li>1x ananas<span>&times;</span></li>
+            <li>4x brzoskwinia<span>&times;</span></li>
+            <li>8x bułka<span>&times;</span></li>
+            <li>3x cebula<span>&times;</span></li>
+            <li>1x chleb<span>&times;</span></li>
+            <li>4x gruszka<span>&times;</span></li>
+            <li>1x indyk<span>&times;</span></li>
+            <li>6x kasza<span>&times;</span></li>
+          </ul>
+          <div class="shoppingListButton">
+            <button ng-click="addItem()">Zrobiono zakupy</button>
+          </div>
+        </div>
       </div>
+
+      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+        <div class="shoppingListArrow">
+          <img src="images/leftArrow.png" width="75px" height="100px">
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="shoppingListProducts">
+          <h1>Lista wszystkich produktów</h1>
+          <div class="shoppingListSearchBox">
+            <div id="search-component">
+              <input #searchBox id="search-box" placeholder="Szukaj wg nazwy" (keyup)="search(searchBox.value)" />
+              <span class="glyphicon glyphicon-search"></span>
+            </div>
+            <div id="search-component2">
+              <input #searchBox id="search-box2" placeholder="Szukaj wg kategorii" (keyup)="search(searchBox.value)" />
+              <span class="glyphicon glyphicon-search"></span>
+            </div>
+          </div>
+          <ul>
+            <li>ananas</li>
+            <li>brzoskwinia</li>
+            <li>bułka</li>
+            <li>cebula</li>
+            <li>chleb</li>
+            <li>gruszka</li>
+            <li>indyk</li>
+            <li>kasza</li>
+            <li>kurczak</li>
+            <li>majonez</li>
+            <li>masło</li>
+            <li>mleko</li>
+            <li>olej</li>
+            <li>parówka</li>
+            <li>pomidor</li>
+            <li>por</li>
+            <li>ryż</li>
+            <li>ser żółty</li>
+            <li>szynka</li>
+            <li>twaróg</li>
+            <li>woda</li>
+          </ul>
+          <!--<div class="shoppingListButton">
+            <button ng-click="addItem()">Dodaj do listy</button>
+          </div>-->
+        </div>
+      </div>
+
     </div>
   </div>
-  <h2>On List</h2>
-  <ul>
-    <li *ngFor="let product of onListProducts">
-      <single-product [product]="product"></single-product>
-    </li>
-  </ul>
 
-</div>
+</section>

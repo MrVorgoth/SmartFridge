@@ -1,10 +1,123 @@
-<div style="margin-top: 70px ">
+<!--<div style="margin-top: 70px ">
   <div>
     <fridge-content></fridge-content>
   </div>
   <div>
     <product-base-search></product-base-search>
   </div>
-</div>
+</div>-->
 
+<section class="myFridgeSection">
 
+  <div class="myFridgeContent">
+    <div class="row">
+      <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+        <div class="myFridgeProducts">
+          <h1>Moje produkty</h1>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Nazwa</th>
+              <th>Ilość</th>
+              <th>Data kupienia</th>
+              <th>Data ważności</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>chleb</td>
+              <td>
+                <img src="images/minus.png" width="25px" height="25px">
+                  1
+                <img src="images/plus.png" width="20px" height="20px">
+              </td>
+              <td>03.06.2017</td>
+              <td>08.06.2017</td>
+            </tr>
+            <tr>
+              <td>gruszka</td>
+              <td>
+                <img src="images/minus.png" width="25px" height="25px">
+                4
+                <img src="images/plus.png" width="20px" height="20px">
+              </td>
+              <td>03.06.2017</td>
+              <td>08.06.2017</td>
+            </tr>
+            <tr>
+              <td>kasza</td>
+              <td>
+                <img src="images/minus.png" width="25px" height="25px">
+                6
+                <img src="images/plus.png" width="20px" height="20px">
+              </td>
+              <td>03.06.2017</td>
+              <td>12.06.2017</td>
+            </tr>
+            <tr>
+              <td><input type="text" name="productName" placeholder="Nazwa produktu"></td>
+              <td><input type="text" name="productQuantity" placeholder="Ilość"></td>
+              <td><input type="text" name="productDateStart" placeholder="Data kupienia"></td>
+              <td><input type="text" name="productDateEnd" placeholder="Data ważności"></td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="myFridgeButton">
+            <button ng-click="addItem()">Dodaj produkt</button>
+            <button ng-click="addItem()">Zapisz</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+        <div class="myFridgeArrow">
+          <img src="images/leftArrow.png" width="75px" height="100px">
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="myFridgeProducts">
+          <h1>Lista wszystkich produktów</h1>
+          <div class="myFridgeSearchBox">
+            <div id="search-component">
+              <input #searchBox id="search-box" placeholder="Szukaj wg nazwy" (keyup)="search(searchBox.value)" />
+              <span class="glyphicon glyphicon-search"></span>
+            </div>
+            <div id="search-component2">
+              <input #searchBox id="search-box2" placeholder="Szukaj wg kategorii" (keyup)="search(searchBox.value)" />
+              <span class="glyphicon glyphicon-search"></span>
+            </div>
+          </div>
+          <ul>
+            <li>ananas</li>
+            <li>brzoskwinia</li>
+            <li>bułka</li>
+            <li>cebula</li>
+            <li>chleb</li>
+            <li>gruszka</li>
+            <li>indyk</li>
+            <li>kasza</li>
+            <li>kurczak</li>
+            <li>majonez</li>
+            <li>masło</li>
+            <li>mleko</li>
+            <li>olej</li>
+            <li>parówka</li>
+            <li>pomidor</li>
+            <li>por</li>
+            <li>ryż</li>
+            <li>ser żółty</li>
+            <li>szynka</li>
+            <li>twaróg</li>
+            <li>woda</li>
+          </ul>
+          <!--<div class="shoppingListButton">
+            <button ng-click="addItem()">Dodaj do listy</button>
+          </div>-->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>

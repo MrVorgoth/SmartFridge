@@ -1,0 +1,153 @@
+// Mixins
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+// Variables
+$registrationFontColor: #FFF;
+$registrationBackgroundColor: #24313C;
+$navHeight: 50px;
+$profileImageHeight: 35vh;
+$footerHeight: 50px;
+$profileContentHeight: calc(100vh - #{$navHeight} - #{$profileImageHeight} - #{$footerHeight});
+
+.myFridgeSection {
+  background-color: #f5f5f5;
+  margin-top: 40px;
+
+  .myFridgeContent {
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+
+    .myFridgeArrow {
+      margin-top: 350px;
+    }
+
+    img {
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .myFridgeProducts {
+      background-color: white;
+      height: 75vh;
+      padding: 15px;
+      margin: 70px 0 50px 0;
+      border: 2px solid #1d1e1f;
+
+      .table {
+        font-size: 16px;
+        text-align: center;
+
+        thead {
+          text-align: center;
+          font-size: 22px;
+          font-weight: bold;
+
+          th {
+            text-align: center;
+          }
+        }
+
+        tbody {
+          input {
+            width: 80%;
+          }
+        }
+
+      }
+
+      .myFridgeSearchBox {
+        width: 100%;
+        text-align: center;
+
+        #search-component {
+          padding: 10px;
+
+          input {
+            width: 85%;
+            font-size: 16px;
+            padding: 7px;
+          }
+
+          span {
+            font-size: 16px;
+          }
+
+        }
+
+        #search-component2 {
+          padding: 10px;
+
+          input {
+            width: 85%;
+            font-size: 16px;
+            padding: 7px;
+          }
+
+          span {
+            font-size: 16px;
+          }
+
+        }
+      }
+
+      h1 {
+        text-transform: uppercase;
+        font-size: 22px;
+        font-weight: 600;
+        text-align: center;
+        margin: 30px 0;
+        font-family: 'Metamorphous', cursive;
+
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        overflow-y: scroll;
+        height: 40vh;
+
+        li {
+          font-size: 18px;
+          background-color: #A9E5C5;
+          margin: 10px 30px;
+          padding: 8px;
+          span {
+            float: right;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      .myFridgeButton {
+        width: 100%;
+        margin: 40px auto 20px auto;
+        text-align: center;
+
+        button {
+          background-color: #464a4c;
+          color: white;
+          border: none;
+          padding: 6px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 20px;
+          margin: 0 10px;
+          &:hover {
+            cursor: pointer;
+            background-color: #777777;
+          }
+        }
+      }
+    }
+
+  }
+}

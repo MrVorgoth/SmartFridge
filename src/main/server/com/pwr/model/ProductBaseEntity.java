@@ -89,4 +89,6 @@ public class ProductBaseEntity {
   public void setRequiedProducts(Collection<RequiedProductEntity> products) {
     this.requiedProducts = products;
   }
+
+
 }

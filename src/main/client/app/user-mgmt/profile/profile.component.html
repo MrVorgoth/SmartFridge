@@ -1,21 +1,79 @@
 <section class="profileSection">
-  <div class="profileBox">
+  <div class="profileImage">
+    <div class="userImage"></div>
+    <!--<div class="userName"> Magda Zielona </div>-->
+    <div class="userName"> {{myInformationName()}} {{myInformationSurname()}} </div>
+  </div>
+  <div class="profileContent">
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <div class="profile-info">
-            <h1>Dane osobowe</h1>
-            <div class="profile-info-box">
-              <p>Login: </p><p class="profile-color"> {{ myInformationLogin() }} </p>
-            </div>
-            <div class="profile-info-box">
-              <p>Imię: </p><p class="profile-color">  {{ myInformationName() }} </p>
-            </div>
-            <div class="profile-info-box">
-              <p>Nazwisko: </p><p class="profile-color">  {{ myInformationSurname() }} </p>
-            </div>
-          <button class="btn" (click)="myProfile()">Pokaż dane osobowe</button>
+        <div class="userMustHaveProducts">
+          <h1>Co zawsze chcesz mieć w swojej lodówce ?</h1>
+          <ul>
+            <li>gruszka <span>&times;</span></li>
+            <li>mleko <span>&times;</span></li>
+            <li>cebula <span>&times;</span></li>
+            <li>majonez <span>&times;</span></li>
+          </ul>
+          <div class="addNewProduct">
+            <input ng-model="addMe" placeholder="Dodaj nowy produkt tutaj">
+            <button ng-click="addItem()">Dodaj</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!--<div class="col-lg-offset-2 col-md-offset-2"></div>-->
+
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="userBMI">
+          <h1>Sprawdź swoje BMI</h1>
+          <div class="BMIBox">
+            <p>Wiek:</p><input type="number" ng-model="addMe" id="BMIAge" placeholder="Podaj swój wiek">
+          </div>
+          <div class="BMIBox">
+            <p>Wzrost:</p><input type="number" ng-model="addMe" id="BMIHeight" placeholder="Podaj swój wzrost">
+          </div>
+          <div class="BMIBox">
+            <p>Waga:</p><input type="number" ng-model="addMe" id="BMIWeight" placeholder="Podaj swoją wagę">
+          </div>
+          <div class="BMIBox">
+            <p>Płeć:</p>
+            <select>
+              <option value="volvo">Mężczyzna</option>
+              <option value="saab">Kobieta</option>
+            </select>
+          </div>
+
+          <button class="BMIButton" (click)="calculateBMI()">Policz BMI</button>
+          <hr />
+
+          <div class="BMIResultBox BMIBold">
+            <p>Twoje BMI:</p><p class="BMIRange" id="BMIResult">-</p>
+          </div>
+          <hr />
+
+          <div class="BMIResultBox"  id="BMIRange1">
+            <p>Niedowaga</p><p class="BMIRange"><18.5</p>
+          </div>
+          <div class="BMIResultBox"  id="BMIRange2">
+            <p>Wartość prawidłowa</p><p class="BMIRange">18.5-24.99</p>
+          </div>
+          <div class="BMIResultBox"  id="BMIRange3">
+            <p>Nadwaga</p><p class="BMIRange">>24.99</p>
+          </div>
         </div>
       </div>
     </div>
+    <button class="btn" (click)="myProfile()">Pokaż dane osobowe</button>
   </div>
+
+  <button (click)="myProducts()">Poka produkty</button>
+
+  <ul>
+    <li *ngFor="let rp of requiedProducts">
+      {{rp}}
+    </li>
+  </ul>
+
 </section>

@@ -4,10 +4,12 @@ import 'rxjs/add/operator/toPromise';
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 import {Cookie} from "../general/cookies.service";
+import {toPromise} from "rxjs/operator/toPromise";
 
 @Injectable()
 export class UserService {
   private users: User[] = [];
+  private requiedProducts: RequiedProducts[] = [];
   private sequencer: number = 1;
   private isAuthorized: boolean = false;
   private whoIsLoggedIn: string = "test";
@@ -15,6 +17,7 @@ export class UserService {
   private postHeaders = new Headers({'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'});
 
   private getUserUrl: string = "http://localhost:8080/user/all";
+  private getRequiedProductsUrl: string = "http://localhost:8080/requiedProduct/all";
   private createUserUrl: string = "http://localhost:8080/user/create";
   private searchUserUrl: string = "http://localhost:8080/user/search";
   private validateUserUrl: string = "http://localhost:8080/user/validate";
@@ -27,6 +30,13 @@ export class UserService {
       .toPromise()
       .then(response => response.json() as User[])
       .catch(this.handleError);
+  }
+
+  getAllRequiedProducts(): Promise<RequiedProducts[]> {
+    return this.http.get(this.getRequiedProductsUrl, {headers: this.headers})
+    .toPromise()
+     .then(response => response.json() as RequiedProducts[])
+     .catch(this.handleError);
   }
 
   getAuthorizedStatus() : boolean {
@@ -77,13 +87,14 @@ export class UserService {
           this.isAuthorized = true;
 
           this.setwhoIsLoggedIn(JSON.stringify(data.login));
-          console.log("Kto sie zalogowal - " + this.getwhoIsLoggedIn());
+          //console.log("Kto sie zalogowal - " + this.getwhoIsLoggedIn());
           Cookie.set("cookie1", this.getwhoIsLoggedIn());
-          //window.location.href = "/homePage";
+          this.router.navigate(['/homePage']);
         }
       }).catch(() => {
-      console.log('catched');
+      console.log('Nieprawidlowe dane logowania');
       //this.router.navigate(['/login']);
+      //window.location.href = "/login";
     });
   }
 
@@ -98,4 +109,8 @@ export class User {
   password: String;
   name: String;
   surname: String;
+}
+
+export class RequiedProducts {
+  quantity: number;
 }

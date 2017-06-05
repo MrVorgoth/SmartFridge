@@ -8,72 +8,211 @@
 // Variables
 $registrationFontColor: #FFF;
 $registrationBackgroundColor: #24313C;
-$navHeight: 100px;
-$fullPageHeight: calc(100vh - #{$navHeight});
+$navHeight: 50px;
+$profileImageHeight: 35vh;
+$footerHeight: 50px;
+$profileContentHeight: calc(100vh - #{$navHeight} - #{$profileImageHeight} - #{$footerHeight});
 
 .profileSection {
-  width: 100%;
-  background-color: #EDEDED;
-  font-size: 24px;
+  background-color: #f5f5f5;
 
-  .profileBox {
+  .profileImage {
+    width: 100%;
+    height: $profileImageHeight;
+    position: relative;
+    background: url("http://i.imgur.com/fkI83c6.jpg");
+    //background-position: 70%;
+    background-size: cover;
+
+    .userImage {
+      width: 200px;
+      height: 200px;
+      background: url("http://i.imgur.com/DSwpV31.jpg") 50% 50%;
+      background-size: cover;
+      position: absolute;
+      left: 10%;
+      top: 40%;
+      @include border-radius(50%);
+      border: 3px solid white;
+    }
+
+    .userName {
+      width: 350px;
+      height: 60px;
+      position: absolute;
+      left: 25%;
+      top: 70%;
+      @include border-radius(10px);
+      //border: 3px solid white;
+      color: white;
+      text-align: center;
+      font-size: 36px;
+      line-height: 60px;
+      font-weight: 700;
+      font-family: 'Metamorphous', cursive;
+    }
+  }
+
+  .profileContent {
     width: 60%;
-    min-height: $fullPageHeight;
+    height: 100vh;
     margin: 0 auto;
 
-    .row {
-      //background-color: #F5F5F5;
-      color: #24313C;
-      min-height: $fullPageHeight;
-      height: 100vh;
-      padding-top: 20vh;
+    .userMustHaveProducts {
+      background-color: white;
+      min-height: 70vh;
+      padding: 15px;
+      margin-top: 70px;
+      border: 2px solid #1d1e1f;
 
-      [class^="col"] {
-        //background-color: #F5F5F5;
-        margin: 0 auto;
+      h1 {
+        text-transform: uppercase;
+        font-size: 22px;
+        font-weight: 600;
+        text-align: center;
+        margin: 30px 0;
+        font-family: 'Metamorphous', cursive;
 
-        .profile-info {
-          text-align: center;
-          margin: 0 auto;
-          background-color: white;
-          padding: 50px;
+      }
 
-          button {
-            @include border-radius(0px);
-            color: white;
-            background-color: #57AC39;
-            width: 100%;
-            padding: 10px;
-            margin-top: 20px;
-            font-size: 18px;
+      ul {
+        list-style-type: none;
+        padding: 0;
+        li {
+          font-size: 18px;
+          background-color: #A9E5C5;
+          margin: 10px 30px;
+          padding: 8px;
+          span {
+            float: right;
             &:hover {
-              background-color: #68BD4A;
-            }
-          }
-
-          h1 {
-            color: black;
-            font-weight: 700;
-            font-size: 36px;
-            padding-bottom: 10px;
-          }
-
-          .profile-info-box {
-            text-align: left;
-            display: block;
-            padding: 5px 0;
-
-            p {
-              display: inline-block;
-            }
-
-            .profile-color {
-              color: #57AC39;
-              padding-left: 10px;
+              cursor: pointer;
             }
           }
         }
       }
+      .addNewProduct {
+        width: 75%;
+        margin: 40px auto 20px auto;
+
+        input {
+          padding: 5px;
+          font-size: 18px;
+          margin-right: 10px;
+        }
+        button {
+          background-color: #464a4c;
+          color: white;
+          border: none;
+          padding: 6px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 20px;
+          &:hover {
+            cursor: pointer;
+            background-color: #777777;
+          }
+        }
+      }
+    }
+
+    .userBMI {
+      background-color: white;
+      min-height: 70vh;
+      padding: 15px;
+      margin-top: 70px;
+      border: 2px solid #1d1e1f;
+
+      h1 {
+        text-transform: uppercase;
+        font-size: 22px;
+        font-weight: 600;
+        text-align: center;
+        margin: 30px 0;
+        font-family: 'Metamorphous', cursive;
+
+      }
+
+      hr {
+        border-top: 3px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .BMIButton {
+        background-color: #464a4c;
+        color: white;
+        border: none;
+        padding: 6px 50px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        font-size: 20px;
+        margin: 30px auto 50px auto;
+        &:hover {
+          cursor: pointer;
+          background-color: #777777;
+        }
+      }
+
+      .BMIBox {
+        width: 80%;
+        margin: 0 auto;
+        p {
+          display: inline-block;
+          font-size: 18px;
+          width: 70px;
+        }
+
+        input {
+          padding: 5px;
+          font-size: 18px;
+          margin: 5px 10px;
+          display: inline-block;
+        }
+
+        select {
+          padding: 5px;
+          font-size: 18px;
+          margin: 5px 10px;
+          display: inline-block;
+        }
+
+      }
+
+      .BMIResultBox {
+        width: 90%;
+        margin: 0 auto;
+        p {
+          display: inline-block;
+          font-size: 18px;
+          width: 170px;
+        }
+
+        .BMIRange {
+          font-size: 18px;
+          margin: 5px 10px;
+          display: inline-block;
+          float: right;
+          &before, &after {
+            content: "";
+            display: table;
+          }
+          &after {
+            clear: both;
+          }
+        }
+
+        .BMIColor {
+          color: green;
+          font-weight: bold;
+        }
+
+      }
+
+      .BMIBold {
+        font-weight: bold;
+      }
+
     }
   }
 }
