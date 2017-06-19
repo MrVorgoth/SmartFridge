@@ -31,14 +31,14 @@ public class DataInit {
         CategoryEntity ce = new CategoryEntity();
         ce.setName("Mieso");
 
-        categoryRepository.save(ce);
+        ce = categoryRepository.findOne((long)1);
 
 
         ProductBaseEntity pbe = new ProductBaseEntity();
         pbe.setCategory(ce);
         pbe.setBaseValidityPeriod(5);
         pbe.setUnits("kg");
-        pbe.setName("Szynka");
+        pbe.setName("Kurczak");
 
         productBaseRepository.save(pbe);
 
@@ -46,7 +46,7 @@ public class DataInit {
         u.setName("a");
         u.setPassword("a");
 
-        userRepository.save(u);
+//        userRepository.save(u);
 
         return pbe;
     }

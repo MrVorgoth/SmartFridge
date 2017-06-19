@@ -11,6 +11,8 @@ public class ProductTO {
 
     private Date insertDate;
 
+    private Date expireDate;
+
     private boolean fresh;
 
     private int quantity;
@@ -27,6 +29,14 @@ public class ProductTO {
 
     public Date getInsertDate() {
         return insertDate;
+    }
+
+    public void setExpireDate(Date expireDate) {
+        this.expireDate = expireDate;
+    }
+
+    public Date getExpireDate() {
+        return expireDate;
     }
 
     public void setInsertDate(Date insertDate) {

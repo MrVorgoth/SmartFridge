@@ -24,36 +24,36 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>chleb</td>
+            <tr *ngFor="let pu of userProducts">
+              <td>{{pu.productBase.name}}</td>
               <td>
                 <img src="images/minus.png" width="25px" height="25px">
-                  1
+                  {{pu.quantity}}
                 <img src="images/plus.png" width="20px" height="20px">
               </td>
-              <td>03.06.2017</td>
-              <td>08.06.2017</td>
+              <td>{{pu.insertDate | date:'yyyy-MM-dd'}}</td>
+              <td>{{pu.expireDate | date:'yyyy-MM-dd'}}</td>
             </tr>
-            <tr>
-              <td>gruszka</td>
-              <td>
-                <img src="images/minus.png" width="25px" height="25px">
-                4
-                <img src="images/plus.png" width="20px" height="20px">
-              </td>
-              <td>03.06.2017</td>
-              <td>08.06.2017</td>
-            </tr>
-            <tr>
-              <td>kasza</td>
-              <td>
-                <img src="images/minus.png" width="25px" height="25px">
-                6
-                <img src="images/plus.png" width="20px" height="20px">
-              </td>
-              <td>03.06.2017</td>
-              <td>12.06.2017</td>
-            </tr>
+            <!--<tr>-->
+              <!--<td>gruszka</td>-->
+              <!--<td>-->
+                <!--<img src="images/minus.png" width="25px" height="25px">-->
+                <!--4-->
+                <!--<img src="images/plus.png" width="20px" height="20px">-->
+              <!--</td>-->
+              <!--<td>03.06.2017</td>-->
+              <!--<td>08.06.2017</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<td>kasza</td>-->
+              <!--<td>-->
+                <!--<img src="images/minus.png" width="25px" height="25px">-->
+                <!--6-->
+                <!--<img src="images/plus.png" width="20px" height="20px">-->
+              <!--</td>-->
+              <!--<td>03.06.2017</td>-->
+              <!--<td>12.06.2017</td>-->
+            <!--</tr>-->
             <tr>
               <td><input type="text" name="productName" placeholder="Nazwa produktu"></td>
               <td><input type="text" name="productQuantity" placeholder="Ilość"></td>
@@ -64,7 +64,7 @@
           </table>
           <div class="myFridgeButton">
             <button ng-click="addItem()">Dodaj produkt</button>
-            <button ng-click="addItem()">Zapisz</button>
+            <button (click)="saveFridge()">Zapisz</button>
           </div>
         </div>
       </div>
@@ -80,36 +80,39 @@
           <h1>Lista wszystkich produktów</h1>
           <div class="myFridgeSearchBox">
             <div id="search-component">
-              <input #searchBox id="search-box" placeholder="Szukaj wg nazwy" (keyup)="search(searchBox.value)" />
+              <input #searchBox id="search-box" placeholder="Szukaj wg nazwy" (keyup)="getAvailableProducts()" [(ngModel)]="filterName"/>
               <span class="glyphicon glyphicon-search"></span>
             </div>
             <div id="search-component2">
-              <input #searchBox id="search-box2" placeholder="Szukaj wg kategorii" (keyup)="search(searchBox.value)" />
+              <input #searchBox id="search-box2" placeholder="Szukaj wg kategorii" (keyup)="getAvailableProducts()" [(ngModel)]="filterCategory"/>
               <span class="glyphicon glyphicon-search"></span>
             </div>
           </div>
           <ul>
-            <li>ananas</li>
-            <li>brzoskwinia</li>
-            <li>bułka</li>
-            <li>cebula</li>
-            <li>chleb</li>
-            <li>gruszka</li>
-            <li>indyk</li>
-            <li>kasza</li>
-            <li>kurczak</li>
-            <li>majonez</li>
-            <li>masło</li>
-            <li>mleko</li>
-            <li>olej</li>
-            <li>parówka</li>
-            <li>pomidor</li>
-            <li>por</li>
-            <li>ryż</li>
-            <li>ser żółty</li>
-            <li>szynka</li>
-            <li>twaróg</li>
-            <li>woda</li>
+            <li *ngFor="let p of visibileProductBase" (click)="addProductToFridge(p)">>
+              {{p.name}}
+            </li>
+            <!--<li>ananas</li>-->
+            <!--<li>brzoskwinia</li>-->
+            <!--<li>bułka</li>-->
+            <!--<li>cebula</li>-->
+            <!--<li>chleb</li>-->
+            <!--<li>gruszka</li>-->
+            <!--<li>indyk</li>-->
+            <!--<li>kasza</li>-->
+            <!--<li>kurczak</li>-->
+            <!--<li>majonez</li>-->
+            <!--<li>masło</li>-->
+            <!--<li>mleko</li>-->
+            <!--<li>olej</li>-->
+            <!--<li>parówka</li>-->
+            <!--<li>pomidor</li>-->
+            <!--<li>por</li>-->
+            <!--<li>ryż</li>-->
+            <!--<li>ser żółty</li>-->
+            <!--<li>szynka</li>-->
+            <!--<li>twaróg</li>-->
+            <!--<li>woda</li>-->
           </ul>
           <!--<div class="shoppingListButton">
             <button ng-click="addItem()">Dodaj do listy</button>

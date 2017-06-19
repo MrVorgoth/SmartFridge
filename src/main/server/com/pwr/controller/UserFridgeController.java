@@ -14,7 +14,7 @@ import java.util.List;
  * Created by Magda Zielonka on 18.05.2017.
  */
 @RestController
-@RequestMapping(path = "userFridge")
+@RequestMapping(path = "/services/userFridge")
 public class UserFridgeController {
 
     @Autowired

@@ -9,7 +9,8 @@ export class ProductBase{
 
 export class Product {
   id : number;
-  insertDate : string;
+  insertDate : Date;
+  expireDate : Date;
   fresh : boolean;
   quantity : number;
   productBase : ProductBase;

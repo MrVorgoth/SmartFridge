@@ -8,8 +8,8 @@ import {Product, ProductBase} from "./Structures";
 export class FridgeService {
   private postHeaders = new Headers({'Content-Type': 'application/json'});
 
-  private getContentURL : string = "http://localhost:8080/userFridge/getContent";
-  private setContentURL : string = "http://localhost:8080/userFridge/setContent";
+  private getContentURL : string = "http://localhost:8080/services/userFridge/getContent";
+  private setContentURL : string = "http://localhost:8080/services/userFridge/setContent";
   products : Product[];
 
   constructor(private http: Http) { }

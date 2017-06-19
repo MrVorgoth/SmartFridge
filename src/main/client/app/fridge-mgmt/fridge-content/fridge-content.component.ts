@@ -22,7 +22,7 @@ export class FridgeContentComponent implements OnInit {
     private fridgeService : FridgeService) { }
 
   ngOnInit(): void {
-    this.userLogin = "a";
+    this.userLogin = "b";
     this.getFridgeContent();
   }
 

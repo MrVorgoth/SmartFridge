@@ -41,6 +41,9 @@ public class UserFridgeService implements IUserFridgeService {
         }
 
         List<ProductTO> products = new ArrayList<ProductTO>();
+        if(fridge == null) {
+            return products;
+        }
         for(ProductEntity product : fridge.getProduts()) {
             products.add(ProductMapper.mapProduct(product));
         }

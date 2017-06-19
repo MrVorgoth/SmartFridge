@@ -14,6 +14,7 @@ public class ProductEntity {
     @GeneratedValue
     private Long id;
     private Date insertDate;
+    private Date expireDate;
     private boolean fresh;
     private int quantity;
 
@@ -31,6 +32,14 @@ public class ProductEntity {
 
     public void setInsertDate(Date insertDate) {
         this.insertDate = insertDate;
+    }
+
+    public Date getExpireDate() {
+        return expireDate;
+    }
+
+    public void setExpiretDate(Date expireDate) {
+        this.expireDate = expireDate;
     }
 
     public boolean getFresh() {
