@@ -22,6 +22,7 @@ public class UserFridgeController {
     @Autowired
     private UserFridgeRepository userFridgeRepository;
 
+    @CrossOrigin
     @RequestMapping(path = "getContent", method = RequestMethod.GET)
     @ResponseBody
     public List<ProductTO> findAllUsers(
@@ -30,6 +31,7 @@ public class UserFridgeController {
         return userFridgeService.getFridgeContent(login);
     }
 
+    @CrossOrigin
     @RequestMapping(path = "setContent", method = RequestMethod.PUT)
     @ResponseBody
     public void updateContent(

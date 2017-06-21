@@ -1,7 +1,8 @@
 package com.pwr.repository;
 
 import com.pwr.model.ProductBaseEntity;
+import com.pwr.model.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductRepository extends JpaRepository<ProductBaseEntity, Long> {
+public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
 }

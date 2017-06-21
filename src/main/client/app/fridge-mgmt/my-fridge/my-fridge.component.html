@@ -27,9 +27,9 @@
             <tr *ngFor="let pu of userProducts">
               <td>{{pu.productBase.name}}</td>
               <td>
-                <img src="images/minus.png" width="25px" height="25px">
+                <img src="images/minus.png" width="25px" height="25px" (click)="decrementQuantity(pu)">
                   {{pu.quantity}}
-                <img src="images/plus.png" width="20px" height="20px">
+                <img src="images/plus.png" width="20px" height="20px" (click)="incrementQuantity(pu)">
               </td>
               <td>{{pu.insertDate | date:'yyyy-MM-dd'}}</td>
               <td>{{pu.expireDate | date:'yyyy-MM-dd'}}</td>
@@ -63,7 +63,7 @@
             </tbody>
           </table>
           <div class="myFridgeButton">
-            <button ng-click="addItem()">Dodaj produkt</button>
+            <!--<button ng-click="addItem()">Dodaj produkt</button>-->
             <button (click)="saveFridge()">Zapisz</button>
           </div>
         </div>

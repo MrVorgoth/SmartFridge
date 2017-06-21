@@ -28,7 +28,7 @@ export class FridgeService {
     let params = new URLSearchParams();
     params.append("login", login);
 
-    this.http.put(this.setContentURL, JSON.stringify(products),{headers:this.postHeaders})
+    this.http.put(this.setContentURL, JSON.stringify(products),{headers:this.postHeaders, search : params})
       .toPromise()
       .then(response => console.log(response.status))
       .catch(this.handleError);

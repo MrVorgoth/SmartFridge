@@ -40,7 +40,7 @@ export class MyFrideComponent implements OnInit{
   }
 
   getUserProducts(): void {
-      this.fridgeService.getFridgeContentFromServer("a").then(userProducts =>
+      this.fridgeService.getFridgeContentFromServer("b").then(userProducts =>
         {
           this.userProducts = userProducts == null ? [] : userProducts;
           console.log(userProducts)});
@@ -50,7 +50,8 @@ export class MyFrideComponent implements OnInit{
       let found = false;
 
       this.userProducts.forEach((product) =>{
-        if(product.productBase.id === productBase.id) {
+
+        if(product.productBase.id === productBase.id && product.insertDate.getDay() == (new Date()).getDay()) {
           product.quantity++;
           found = true;
           return;
@@ -73,7 +74,17 @@ export class MyFrideComponent implements OnInit{
   }
 
   saveFridge() {
-      this.fridgeService.setFridgeContentOnServer("a", this.userProducts);
+      this.fridgeService.setFridgeContentOnServer("b", this.userProducts);
+  }
+
+  incrementQuantity(p : Product) {
+      p.quantity++;
+  }
+
+  decrementQuantity(p : Product) {
+    if(p.quantity > 0) {
+      p.quantity--;
+    }
   }
 
   reciveProduct(prod : ProductBase) {

@@ -5,6 +5,7 @@ import com.pwr.model.ProductEntity;
 import com.pwr.model.ProductTO;
 import com.pwr.model.UserEntity;
 import com.pwr.model.UserFridgeEntity;
+import com.pwr.repository.ProductRepository;
 import com.pwr.repository.UserFridgeRepository;
 import com.pwr.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class UserFridgeService implements IUserFridgeService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     @Override
     public List<ProductTO> getFridgeContent(String login) {
@@ -58,11 +62,20 @@ public class UserFridgeService implements IUserFridgeService {
 
         List<ProductEntity> productEntities = new ArrayList<ProductEntity>();
         for(ProductTO product : products) {
-            productEntities.add(ProductMapper.mapProduct(product));
+            if(product.getQuantity() > 0)
+                productEntities.add(ProductMapper.mapProduct(product));
         }
+        productRepository.save(productEntities);
 
+        if(fridge == null) {
+            fridge = new UserFridgeEntity();
+            fridge.setUser(userEntity);
+        }
         fridge.setProducts(productEntities);
-
         userFridgeRepository.save(fridge);
+        if(userEntity.getUserFridge() == null) {
+            userEntity.setUserFridge(fridge);
+            userRepository.save(userEntity);
+        }
     }
 }
